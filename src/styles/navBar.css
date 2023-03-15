@@ -1,0 +1,49 @@
+nav {
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.navbar {
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--half-size) var(--full-size);
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-menu {
+    justify-content: center;
+}
+
+.navbar-offer {
+    background-color: var(--cta);
+    color: var(--primary);
+    font-size: var(--font-16);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.nav-left>:nth-child(1) {
+    display: none;
+}
+
+.logo {
+    width: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-left>:nth-child(1) {
+        display: block;
+    }
+
+    .navbar-menu>* {
+        display: none;
+    }
+}

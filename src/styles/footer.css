@@ -1,0 +1,55 @@
+footer {
+    width: 100%;
+    border-top: 4px solid var(--cta);
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--half-size) var(--full-size);
+    display: flex;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: row;
+    gap: var(--half-size);
+}
+
+.special-link {
+    color: var(--cta);
+}
+
+@media screen and (max-width: 1000px) {
+    footer {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .align-right {
+        text-align: right;
+    }
+
+    .footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    #footer-1 {
+        order: 2;
+    }
+
+    #footer-2 {
+        order: 1;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: var(--half-size);
+    }
+
+    #footer-3 {
+        order: 3;
+    }
+}
+
+/* TODO: Fix footer order on smaller screens & spacing on larger screens */

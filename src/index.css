@@ -1,0 +1,158 @@
+:root {
+    /* Colors */
+    --primary: #fff;
+    --secondary: #474647;
+    --secondary-svg: invert(26%) sepia(8%) saturate(79%) hue-rotate(251deg) brightness(90%) contrast(85%);
+    --tertiary: #949294;
+    --cta: #16A093;
+    --fade: #47464780;
+
+    /* Fonts */
+    --font-family: 'Roboto', sans-serif;
+    --font-size: 20px;
+    --font-16: calc(var(--font-size) * 0.8);
+    --font-18: calc(var(--font-size) * 0.9);
+    --font-20: var(--font-size);
+    --font-25: calc(var(--font-size) * 1.25);
+    --font-50: calc(var(--font-size) * 2.5);
+    --font-size-small: var(--font-size);
+
+    /* Sizing */
+    --half-size: calc(var(--font-size) * 0.5);
+    --full-size: var(--font-size);
+    --double-size: calc(var(--font-size) * 2);
+    --icon-size: 30px;
+}
+
+/* Use a more-intuitive box-sizing model. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+}
+
+/* Allow percentage-based heights in the application */
+html,
+body {
+    height: 100%;
+}
+
+/* Add accessible line-height & Improve text rendering */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Remove built-in form typography styles */
+input,
+button,
+textarea,
+select,
+a {
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    padding: 0;
+    list-style: none;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*. Create a root stacking context */
+#root,
+#__next {
+    isolation: isolate;
+    height: 100%;
+}
+
+html {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    background-image: url(./assets/gvg-bg.png);
+    background-position: center;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(#0000, var(--primary));
+}
+
+.flex {
+    display: flex;
+    gap: var(--half-size);
+}
+
+.icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    filter: var(--secondary-svg);
+}
+
+.page {
+    padding: 100px 0;
+    margin-inline: var(--half-size);
+}
+
+.bg-white {
+    background-color: var(--primary);
+}
+
+.font-one {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--font-50);
+    color: var(--tertiary);
+}
+
+.font-two {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--font-25);
+    color: var(--secondary);
+}
+
+.font-three {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--font-20);
+    color: var(--secondary);
+}
+
+.font-four {
+    font-size: var(--font-18);
+    color: var(--secondary);
+}
+
+.font-five {
+    font-size: var(--font-16);
+    color: var(--tertiary);
+}
