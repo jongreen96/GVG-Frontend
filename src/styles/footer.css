@@ -5,8 +5,7 @@ footer {
     align-items: center;
     padding: var(--half-size) var(--full-size);
     display: flex;
-    position: absolute;
-    bottom: 0;
+    flex-shrink: 0;
 }
 
 .footer-section {

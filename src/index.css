@@ -102,7 +102,6 @@ html {
 }
 
 body {
-    height: 100vh;
     background: linear-gradient(#0000, var(--primary));
 }
 
@@ -117,9 +116,15 @@ body {
     filter: var(--secondary-svg);
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
 .page {
     padding: 100px 0;
     margin-inline: var(--half-size);
+    flex: 1;
 }
 
 .bg-white {
