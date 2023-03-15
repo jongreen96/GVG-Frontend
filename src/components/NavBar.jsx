@@ -4,7 +4,7 @@ import menu from '../assets/menu.svg'
 import profile from '../assets/profile.svg'
 import search from '../assets/search.svg'
 
-import '../styles/NavBar.css'
+import '../styles/navBar.css'
 import { Link, NavLink } from 'react-router-dom'
 
 export function NavBar() {
