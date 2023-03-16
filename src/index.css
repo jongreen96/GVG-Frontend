@@ -36,10 +36,10 @@
     margin: 0;
 }
 
-/* Allow percentage-based heights in the application */
-html,
-body {
-    height: 100%;
+/* Dqefaults page size to fullscreen */
+#root {
+    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 /* Add accessible line-height & Improve text rendering */
@@ -101,10 +101,6 @@ html {
     background-position: center;
 }
 
-body {
-    background: linear-gradient(#0000, var(--primary));
-}
-
 .flex {
     display: flex;
     gap: var(--half-size);
@@ -119,10 +115,10 @@ body {
 #root {
     display: flex;
     flex-direction: column;
+    background: linear-gradient(#0000, var(--primary));
 }
 
 .page {
-    padding: 100px 0;
     margin-inline: var(--half-size);
     flex: 1;
 }
