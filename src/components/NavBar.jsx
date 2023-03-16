@@ -1,26 +1,36 @@
 import logo from '../assets/logo.svg'
-import basket from '../assets/basket.svg'
-import hamMenu from '../assets/menu.svg'
-import profile from '../assets/profile.svg'
-import search from '../assets/search.svg'
+import basketIcon from '../assets/basket.svg'
+import menuIcon from '../assets/menu.svg'
+import profileIcon from '../assets/profile.svg'
+import searchIcon from '../assets/search.svg'
 import { MenuItems } from './MenuItems'
 import { SideMenu } from './SideMenu'
+import { Search } from './Search'
 
-import '../styles/navBar.css'
+import '../styles/navigation.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 export function NavBar() {
 	const [menu, setMenu] = useState(false)
-	const toggleMenu = () => setMenu(!menu)
+	const toggleMenu = () => {
+		setMenu(!menu)
+		setSearch(false)
+	}
+
+	const [search, setSearch] = useState(false)
+	const toggleSearch = () => {
+		setSearch(!search)
+		setMenu(false)
+	}
 
 	return (
 		<>
 			<nav className='bg-white' role='navigation' aria-label='main navigation'>
 				<div className='navbar flex'>
 					<div className='nav-left flex'>
-						<img src={hamMenu} alt='Menu' onClick={() => toggleMenu()} className='menu icon' aria-label='Menu button' role='button' />
-						<img src={search} alt='Search' className='search icon' aria-label='Search button' role='button' />
+						<img src={menuIcon} alt='Menu' onClick={() => toggleMenu()} className='icon' aria-label='Menu button' role='button' />
+						<img src={searchIcon} alt='Search' onClick={() => toggleSearch()} className='icon' aria-label='Search button' role='button' />
 					</div>
 					<div className='nav-center'>
 						<Link to='/'>
@@ -29,9 +39,9 @@ export function NavBar() {
 					</div>
 					<div className='nav-right flex'>
 						<Link to='/account'>
-							<img src={profile} alt='Profile' className='profile icon' aria-label='Profile button' role='button' />
+							<img src={profileIcon} alt='Profile' className='icon' aria-label='Profile button' role='button' />
 						</Link>
-						<img src={basket} alt='Basket' className='basket icon' aria-label='Basket button' role='button' />
+						<img src={basketIcon} alt='Basket' className='icon' aria-label='Basket button' role='button' />
 					</div>
 				</div>
 				<ul className='navbar-menu flex font-three'>
@@ -39,6 +49,7 @@ export function NavBar() {
 				</ul>
 				<div className='navbar-offer'> All bundles 30% off! </div>
 				{menu && <SideMenu toggleMenu={toggleMenu} />}
+				{search && <Search toggleSearch={toggleSearch} />}
 			</nav>
 		</>
 	)
