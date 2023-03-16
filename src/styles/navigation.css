@@ -4,6 +4,7 @@ nav {
     position: sticky;
     width: 100%;
     top: 0;
+    background-color: var(--primary);
 }
 
 .navbar {
@@ -51,7 +52,7 @@ nav {
 
 /* MENU */
 .side-menu {
-    padding: var(--full-size);
+    padding: var(--half-size);
     background-color: var(--primary);
     position: absolute;
     bottom: 100;
@@ -83,4 +84,45 @@ nav {
     border-radius: 0 0 var(--half-size) var(--half-size);
     padding: var(--half-size) var(--full-size);
     text-align: center;
+}
+
+/* LOGIN */
+.login {
+    background-color: var(--primary);
+    position: absolute;
+    bottom: 100;
+    right: 0;
+    margin: var(--full-size);
+    border-radius: var(--half-size);
+    padding: var(--half-size);
+}
+
+.login>input {
+    width: 100%;
+    color: var(--secondary);
+    border-radius: var(--half-size);
+    padding-inline: var(--half-size);
+    border: 2px solid var(--secondary);
+}
+
+.login>input::placeholder {
+    color: var(--tertiary);
+}
+
+.register {
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+#register {
+    color: var(--cta);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+    .login {
+        margin: 0;
+        width: 100%;
+        border-radius: 0 0 var(--half-size) var(--half-size);
+    }
 }

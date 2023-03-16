@@ -6,6 +6,7 @@ import searchIcon from '../assets/search.svg'
 import { MenuItems } from './MenuItems'
 import { SideMenu } from './SideMenu'
 import { Search } from './Search'
+import { Login } from './Login'
 
 import '../styles/navigation.css'
 import { Link } from 'react-router-dom'
@@ -16,11 +17,20 @@ export function NavBar() {
 	const toggleMenu = () => {
 		setMenu(!menu)
 		setSearch(false)
+		setLogin(false)
 	}
 
 	const [search, setSearch] = useState(false)
 	const toggleSearch = () => {
 		setSearch(!search)
+		setMenu(false)
+		setLogin(false)
+	}
+
+	const [login, setLogin] = useState(false)
+	const toggleLogin = () => {
+		setLogin(!login)
+		setSearch(false)
 		setMenu(false)
 	}
 
@@ -38,9 +48,7 @@ export function NavBar() {
 						</Link>
 					</div>
 					<div className='nav-right flex'>
-						<Link to='/account'>
-							<img src={profileIcon} alt='Profile' className='icon' aria-label='Profile button' role='button' />
-						</Link>
+						<img src={profileIcon} alt='Profile' onClick={() => toggleLogin()} className='icon' aria-label='Profile button' role='button' />
 						<img src={basketIcon} alt='Basket' className='icon' aria-label='Basket button' role='button' />
 					</div>
 				</div>
@@ -50,6 +58,7 @@ export function NavBar() {
 				<div className='navbar-offer'> All bundles 30% off! </div>
 				{menu && <SideMenu toggleMenu={toggleMenu} />}
 				{search && <Search toggleSearch={toggleSearch} />}
+				{login && <Login toggleLogin={toggleLogin} />}
 			</nav>
 		</>
 	)

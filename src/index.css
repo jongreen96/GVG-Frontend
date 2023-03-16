@@ -18,6 +18,7 @@
     --font-size-small: var(--font-size);
 
     /* Sizing */
+    --quarter-size: calc(var(--font-size) * 0.25);
     --half-size: calc(var(--font-size) * 0.5);
     --full-size: var(--font-size);
     --double-size: calc(var(--font-size) * 2);
@@ -138,10 +139,6 @@ html {
     flex: 1;
 }
 
-.bg-white {
-    background-color: var(--primary);
-}
-
 .overlay {
     position: fixed;
     bottom: 100;
@@ -151,6 +148,16 @@ html {
     background-color: var(--secondary);
     opacity: 0.5;
     z-index: -1;
+}
+
+.btn {
+    background-color: var(--cta);
+    color: var(--primary);
+    border-radius: var(--half-size);
+    padding: var(--quarter-size) var(--half-size);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .font-one {
