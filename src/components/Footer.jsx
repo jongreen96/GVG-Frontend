@@ -28,7 +28,7 @@ export function Footer() {
 			<div className='align-right' id='footer-3'>
 				<p>
 					Website designed by{' '}
-					<a href='https://www.jongreen.dev' className='special-link'>
+					<a href='https://www.jongreen.dev' target='_blank' className='special-link'>
 						jongreen.dev
 					</a>
 				</p>

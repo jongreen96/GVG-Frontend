@@ -106,6 +106,12 @@ html {
     gap: var(--half-size);
 }
 
+.flex-column {
+    display: flex;
+    gap: var(--half-size);
+    flex-direction: column;
+}
+
 .icon {
     width: var(--icon-size);
     height: var(--icon-size);
