@@ -7,15 +7,12 @@
     border-radius: 0 0 var(--half-size) var(--half-size);
 }
 
-.side-menu::after {
-    content: "";
-    position: absolute;
-    top: 0;
+.overlay {
+    position: fixed;
+    bottom: 100;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: var(--fade);
     z-index: -1;
 }
-
-/* TODO: Fix shadow overflow causing scroll bar */

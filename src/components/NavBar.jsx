@@ -12,13 +12,14 @@ import { useState } from 'react'
 
 export function NavBar() {
 	const [menu, setMenu] = useState(false)
+	const toggleMenu = () => setMenu(!menu)
 
 	return (
 		<>
 			<nav className='bg-white' role='navigation' aria-label='main navigation'>
 				<div className='navbar flex'>
 					<div className='nav-left flex'>
-						<img src={hamMenu} alt='Menu' onClick={() => setMenu(!menu)} className='menu icon' aria-label='Menu button' role='button' />
+						<img src={hamMenu} alt='Menu' onClick={() => toggleMenu()} className='menu icon' aria-label='Menu button' role='button' />
 						<img src={search} alt='Search' className='search icon' aria-label='Search button' role='button' />
 					</div>
 					<div className='nav-center'>
@@ -37,7 +38,7 @@ export function NavBar() {
 					<MenuItems />
 				</ul>
 				<div className='navbar-offer'> All bundles 30% off! </div>
-				{menu && <SideMenu />}
+				{menu && <SideMenu toggleMenu={toggleMenu} />}
 			</nav>
 		</>
 	)
