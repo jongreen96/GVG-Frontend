@@ -83,6 +83,7 @@ nav {
     position: absolute;
     bottom: 100;
     right: 0;
+    width: 350px;
     margin: var(--full-size);
     border-radius: var(--half-size);
     padding: var(--half-size);
