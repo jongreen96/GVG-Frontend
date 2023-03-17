@@ -1,3 +1,4 @@
+/* VARIABLES */
 :root {
     /* Colors */
     --primary: #fff;
@@ -5,7 +6,6 @@
     --secondary-svg: invert(26%) sepia(8%) saturate(79%) hue-rotate(251deg) brightness(90%) contrast(85%);
     --tertiary: #949294;
     --cta: #16A093;
-    --fade: #47464780;
 
     /* Fonts */
     --font-family: 'Roboto', sans-serif;
@@ -25,32 +25,27 @@
     --icon-size: 30px;
 }
 
-/* Use a more-intuitive box-sizing model. */
+/* CSS RESET */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Remove default margin */
 * {
     margin: 0;
 }
 
-/* Dqefaults page size to fullscreen */
 #root {
     min-height: 100vh;
     min-height: 100dvh;
 }
 
-/* Add accessible line-height & Improve text rendering */
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-
 }
 
-/* Improve media defaults */
 img,
 picture,
 video,
@@ -60,7 +55,6 @@ svg {
     max-width: 100%;
 }
 
-/* Remove built-in form typography styles */
 input,
 button,
 textarea,
@@ -86,7 +80,6 @@ ol {
     list-style: none;
 }
 
-/* Avoid text overflows */
 p,
 h1,
 h2,
@@ -97,18 +90,41 @@ h6 {
     overflow-wrap: break-word;
 }
 
-/*. Create a root stacking context */
 #root,
 #__next {
     isolation: isolate;
-    height: 100%;
 }
 
-html {
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    background-image: url(./assets/gvg-bg.png);
-    background-position: center;
+/* CLASS SHORTCUTS */
+.font-one {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--font-50);
+    color: var(--tertiary);
+}
+
+.font-two {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--font-25);
+    color: var(--secondary);
+}
+
+.font-three {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--font-20);
+    color: var(--secondary);
+}
+
+.font-four {
+    font-size: var(--font-18);
+    color: var(--secondary);
+}
+
+.font-five {
+    font-size: var(--font-16);
+    color: var(--tertiary);
 }
 
 .flex {
@@ -120,6 +136,14 @@ html {
     display: flex;
     gap: var(--half-size);
     flex-direction: column;
+}
+
+/* STYLES */
+html {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    background-image: url(./assets/gvg-bg.png);
+    background-position: center;
 }
 
 .icon {
@@ -158,35 +182,4 @@ html {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-}
-
-.font-one {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: var(--font-50);
-    color: var(--tertiary);
-}
-
-.font-two {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: var(--font-25);
-    color: var(--secondary);
-}
-
-.font-three {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: var(--font-20);
-    color: var(--secondary);
-}
-
-.font-four {
-    font-size: var(--font-18);
-    color: var(--secondary);
-}
-
-.font-five {
-    font-size: var(--font-16);
-    color: var(--tertiary);
 }

@@ -38,6 +38,7 @@ nav {
 
 .logo {
     width: 100px;
+    height: 38px;
 }
 
 @media screen and (max-width: 768px) {
@@ -58,16 +59,6 @@ nav {
     bottom: 100;
     width: 100%;
     border-radius: 0 0 var(--half-size) var(--half-size);
-}
-
-.side-menu-items>*,
-.side-menu-footer>* {
-    border-bottom: 2px solid var(--cta);
-}
-
-.side-menu-items>*:last-child,
-.side-menu-footer>*:last-child {
-    border-bottom: none;
 }
 
 /* SEARCH */
@@ -111,12 +102,12 @@ nav {
 
 .register {
     justify-content: space-between;
-    cursor: pointer;
 }
 
 #register {
     color: var(--cta);
     font-weight: bold;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {

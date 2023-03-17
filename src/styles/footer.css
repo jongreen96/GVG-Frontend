@@ -12,7 +12,6 @@ footer {
 
 .footer-section {
     display: flex;
-    flex-direction: row;
     gap: var(--half-size);
 }
 
@@ -20,7 +19,7 @@ footer {
     color: var(--cta);
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
     footer {
         flex-direction: column;
         justify-content: center;
