@@ -11,12 +11,15 @@ import { Login } from './Login'
 import '../styles/navigation.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 export function NavBar() {
 	const [menu, setMenu] = useState({ menu: false, search: false, login: false })
 	const toggleMenu = (button) => {
 		setMenu({ menu: false, search: false, login: false, [button]: !menu[button] })
 	}
+
+	const user = useSelector((state) => state.auth.user)
 
 	return (
 		<>
@@ -32,7 +35,13 @@ export function NavBar() {
 						</Link>
 					</div>
 					<div className='nav-right flex'>
-						<img src={profileIcon} alt='Profile' onClick={() => toggleMenu('login')} className='icon' aria-label='Profile button' role='button' />
+						{user ? (
+							<Link to='/account'>
+								<img src={profileIcon} alt='Profile' className='icon' aria-label='Profile button' role='button' />
+							</Link>
+						) : (
+							<img src={profileIcon} alt='Profile' onClick={() => toggleMenu('login')} className='icon' aria-label='Profile button' role='button' />
+						)}
 						<img src={basketIcon} alt='Basket' className='icon' aria-label='Basket button' role='button' />
 					</div>
 				</div>
