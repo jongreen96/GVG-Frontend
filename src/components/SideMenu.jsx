@@ -6,10 +6,10 @@ export function SideMenu(props) {
 	return (
 		<>
 			<div className='side-menu flex-column font-three'>
-				<ul className='side-menu-items' onClick={() => toggleMenu()}>
+				<ul className='side-menu-items' onClick={() => toggleMenu('menu')}>
 					<MenuItems />
 				</ul>
-				<ul className='side-menu-footer' onClick={() => toggleMenu()}>
+				<ul className='side-menu-footer' onClick={() => toggleMenu('menu')}>
 					<li>
 						<Link to='/about'>
 							<p>About</p>
@@ -22,7 +22,7 @@ export function SideMenu(props) {
 					</li>
 				</ul>
 			</div>
-			<div className='overlay' onClick={() => toggleMenu()}></div>
+			<div className='overlay' onClick={() => toggleMenu('menu')}></div>
 		</>
 	)
 }

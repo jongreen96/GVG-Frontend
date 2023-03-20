@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export function Login(props) {
-	const { toggleLogin } = props
+	const { toggleMenu } = props
 	const [register, setRegister] = useState(false)
 	const toggleRegister = () => setRegister(!register)
 
@@ -23,7 +23,7 @@ export function Login(props) {
 						</p>
 					</div>
 				</div>
-				<div className='overlay' onClick={() => toggleLogin()}></div>
+				<div className='overlay' onClick={() => toggleMenu('login')}></div>
 			</>
 		)
 	} else {
@@ -41,7 +41,7 @@ export function Login(props) {
 						</p>
 					</div>
 				</div>
-				<div className='overlay' onClick={() => toggleLogin()}></div>
+				<div className='overlay' onClick={() => toggleMenu('login')}></div>
 			</>
 		)
 	}

@@ -13,25 +13,9 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 export function NavBar() {
-	const [menu, setMenu] = useState(false)
-	const toggleMenu = () => {
-		setMenu(!menu)
-		setSearch(false)
-		setLogin(false)
-	}
-
-	const [search, setSearch] = useState(false)
-	const toggleSearch = () => {
-		setSearch(!search)
-		setMenu(false)
-		setLogin(false)
-	}
-
-	const [login, setLogin] = useState(false)
-	const toggleLogin = () => {
-		setLogin(!login)
-		setSearch(false)
-		setMenu(false)
+	const [menu, setMenu] = useState({ menu: false, search: false, login: false })
+	const toggleMenu = (button) => {
+		setMenu({ menu: false, search: false, login: false, [button]: !menu[button] })
 	}
 
 	return (
@@ -39,8 +23,8 @@ export function NavBar() {
 			<nav className='bg-white' role='navigation' aria-label='main navigation'>
 				<div className='navbar flex'>
 					<div className='nav-left flex'>
-						<img src={menuIcon} alt='Menu' onClick={() => toggleMenu()} className='icon' aria-label='Menu button' role='button' />
-						<img src={searchIcon} alt='Search' onClick={() => toggleSearch()} className='icon' aria-label='Search button' role='button' />
+						<img src={menuIcon} alt='Menu' onClick={() => toggleMenu('menu')} className='icon' aria-label='Menu button' role='button' />
+						<img src={searchIcon} alt='Search' onClick={() => toggleMenu('search')} className='icon' aria-label='Search button' role='button' />
 					</div>
 					<div className='nav-center'>
 						<Link to='/'>
@@ -48,7 +32,7 @@ export function NavBar() {
 						</Link>
 					</div>
 					<div className='nav-right flex'>
-						<img src={profileIcon} alt='Profile' onClick={() => toggleLogin()} className='icon' aria-label='Profile button' role='button' />
+						<img src={profileIcon} alt='Profile' onClick={() => toggleMenu('login')} className='icon' aria-label='Profile button' role='button' />
 						<img src={basketIcon} alt='Basket' className='icon' aria-label='Basket button' role='button' />
 					</div>
 				</div>
@@ -56,9 +40,9 @@ export function NavBar() {
 					<MenuItems />
 				</ul>
 				<div className='navbar-offer'> All bundles 30% off! </div>
-				{menu && <SideMenu toggleMenu={toggleMenu} />}
-				{search && <Search toggleSearch={toggleSearch} />}
-				{login && <Login toggleLogin={toggleLogin} />}
+				{menu.menu && <SideMenu toggleMenu={toggleMenu} />}
+				{menu.search && <Search toggleMenu={toggleMenu} />}
+				{menu.login && <Login toggleMenu={toggleMenu} />}
 			</nav>
 		</>
 	)
