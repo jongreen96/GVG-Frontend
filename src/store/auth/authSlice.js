@@ -3,7 +3,10 @@ import axios from 'axios'
 
 export const checkLoginStatus = createAsyncThunk('auth/checkLoginStatus', async () => {
 	try {
-		const response = await axios.get('http://localhost:3000/auth')
+		const response = await axios.get('http://localhost:3000/auth', {
+			withCredentials: true,
+		})
+		console.log('here')
 		return response.data
 	} catch (err) {
 		throw err

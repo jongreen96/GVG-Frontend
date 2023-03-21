@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-export function NavBar() {
+export default function NavBar() {
 	const [menu, setMenu] = useState({ menu: false, search: false, login: false })
 	const toggleMenu = (button) => {
 		setMenu({ menu: false, search: false, login: false, [button]: !menu[button] })

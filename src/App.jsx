@@ -1,24 +1,22 @@
 import { Routes, Route } from 'react-router-dom'
-import { Home } from './pages/Home.jsx'
-import { Products } from './pages/Products.jsx'
-import { NavBar } from './components/NavBar.jsx'
-import { Product } from './pages/Product.jsx'
-import { About } from './pages/About.jsx'
-import { Account } from './pages/Account.jsx'
-import { Footer } from './components/Footer.jsx'
-
-import { selectUser, checkLoginStatus } from './store/auth/authSlice.js'
-import { useSelector, useDispatch } from 'react-redux'
+import { checkLoginStatus } from './store/auth/authSlice.js'
+import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 
+import Home from './pages/Home.jsx'
+import Products from './pages/Products.jsx'
+import Product from './pages/Product.jsx'
+import About from './pages/About.jsx'
+import Account from './pages/Account.jsx'
+import NavBar from './components/NavBar.jsx'
+import Footer from './components/Footer.jsx'
+
 function App() {
-	const user = useSelector(selectUser)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
 		dispatch(checkLoginStatus())
-		console.log(user)
-	}, [dispatch])
+	}, [])
 
 	return (
 		<>

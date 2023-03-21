@@ -1,4 +1,4 @@
-export function Account() {
+export default function Account() {
 	return (
 		<div className='page'>
 			<h1>Account Page</h1>
