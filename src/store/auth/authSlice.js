@@ -6,7 +6,7 @@ export const checkLoginStatus = createAsyncThunk('auth/checkLoginStatus', async 
 		const response = await axios.get('http://localhost:3000/auth', {
 			withCredentials: true,
 		})
-		console.log('here')
+		// console.log(response.data)
 		return response.data
 	} catch (err) {
 		throw err
@@ -16,7 +16,7 @@ export const checkLoginStatus = createAsyncThunk('auth/checkLoginStatus', async 
 export const login = createAsyncThunk('auth/login', async (credentials) => {
 	try {
 		const response = await axios.post('http://localhost:3000/login', credentials)
-		return response.data
+		return response.data.user
 	} catch (err) {
 		throw err
 	}
@@ -54,7 +54,7 @@ const authSlice = createSlice({
 			})
 			.addCase(checkLoginStatus.fulfilled, (state, action) => {
 				state.status = 'succeeded'
-				state.user = action.payload.user
+				state.user = action.payload
 			})
 			.addCase(checkLoginStatus.rejected, (state, action) => {
 				state.status = 'failed'
@@ -65,7 +65,7 @@ const authSlice = createSlice({
 			})
 			.addCase(login.fulfilled, (state, action) => {
 				state.status = 'succeeded'
-				state.user = action.payload.user
+				state.user = action.payload
 			})
 			.addCase(login.rejected, (state, action) => {
 				state.status = 'failed'

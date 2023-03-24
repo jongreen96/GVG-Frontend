@@ -21,7 +21,12 @@ export function Login({ toggleMenu }) {
 	}
 
 	const submitLogin = () => {
-		dispatch(login(form))
+		dispatch(
+			login({
+				email: form.email,
+				password: form.password,
+			})
+		)
 		toggleMenu('login')
 	}
 
