@@ -1,25 +1,26 @@
-import logo from '../assets/logo.svg'
-import basketIcon from '../assets/basket.svg'
-import menuIcon from '../assets/menu.svg'
-import profileIcon from '../assets/profile.svg'
-import searchIcon from '../assets/search.svg'
-import { MenuItems } from './MenuItems'
-import { SideMenu } from './SideMenu'
-import { Search } from './Search'
-import { Login } from './Login'
+import logo from '../assets/logo.svg';
+import basketIcon from '../assets/basket.svg';
+import menuIcon from '../assets/menu.svg';
+import profileIcon from '../assets/profile.svg';
+import searchIcon from '../assets/search.svg';
+import { MenuItems } from './MenuItems';
+import { SideMenu } from './SideMenu';
+import { Search } from './Search';
+import { Login } from './Login';
 
-import '../styles/navigation.css'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import '../styles/navigation.css';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../store/auth/authSlice';
 
 export default function NavBar() {
-	const [menu, setMenu] = useState({ menu: false, search: false, login: false })
+	const [menu, setMenu] = useState({ menu: false, search: false, login: false });
 	const toggleMenu = (button) => {
-		setMenu({ menu: false, search: false, login: false, [button]: !menu[button] })
-	}
+		setMenu({ menu: false, search: false, login: false, [button]: !menu[button] });
+	};
 
-	const user = useSelector((state) => state.auth.user)
+	const user = useSelector(selectUser);
 
 	return (
 		<>
@@ -54,5 +55,5 @@ export default function NavBar() {
 				{menu.login && <Login toggleMenu={toggleMenu} />}
 			</nav>
 		</>
-	)
+	);
 }
