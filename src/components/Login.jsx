@@ -1,24 +1,29 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { login } from '../store/auth/authSlice'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { checkLoginStatus, login, register } from '../store/auth/authAPI';
 
 export function Login({ toggleMenu }) {
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
-	const [register, setRegister] = useState(false)
-	const toggleRegister = () => setRegister(!register)
-
-	const [form, setForm] = useState({
+	const emptyForm = {
 		email: '',
 		password: '',
 		firstName: '',
 		lastName: '',
 		confirmPassword: '',
-	})
+	};
+
+	const [registerMenu, setRegisterMenu] = useState(false);
+	const [form, setForm] = useState(emptyForm);
+
+	const toggleRegister = () => {
+		setForm(emptyForm);
+		setRegisterMenu(!registerMenu);
+	};
 
 	const handleChange = (e) => {
-		setForm({ ...form, [e.target.name]: e.target.value })
-	}
+		setForm({ ...form, [e.target.name]: e.target.value });
+	};
 
 	const submitLogin = () => {
 		dispatch(
@@ -26,21 +31,40 @@ export function Login({ toggleMenu }) {
 				email: form.email,
 				password: form.password,
 			})
-		)
-		toggleMenu('login')
-	}
+		);
+		toggleMenu('login');
+		setForm(emptyForm);
+	};
 
-	if (register) {
+	const submitRegister = () => {
+		if (form.password === form.confirmPassword) {
+			dispatch(
+				register({
+					email: form.email,
+					password: form.password,
+					firstName: form.firstName,
+					lastName: form.lastName,
+				})
+			);
+			submitLogin();
+			toggleMenu('login');
+			setForm(emptyForm);
+		}
+	};
+
+	if (registerMenu) {
 		return (
 			<>
 				<div className='login flex-column'>
 					<p className='font-three'>REGISTER</p>
-					<input type='text' placeholder='FIRST NAME' name='firstName' onChange={handleChange} />
-					<input type='text' placeholder='LAST NAME' name='lastName' onChange={handleChange} />
-					<input type='text' placeholder='EMAIL' name='email' onChange={handleChange} />
-					<input type='password' placeholder='PASSWORD' name='password' onChange={handleChange} />
-					<input type='password' placeholder='CONFIRM PASSWORD' name='confirmPassword' onChange={handleChange} />
-					<button className='btn'>SUBMIT</button>
+					<input type='text' placeholder='FIRST NAME' name='firstName' onChange={(e) => handleChange(e)} value={form.firstName} />
+					<input type='text' placeholder='LAST NAME' name='lastName' onChange={(e) => handleChange(e)} value={form.lastName} />
+					<input type='text' placeholder='EMAIL' name='email' onChange={(e) => handleChange(e)} value={form.email} />
+					<input type='password' placeholder='PASSWORD' name='password' onChange={(e) => handleChange(e)} value={form.password} />
+					<input type='password' placeholder='CONFIRM PASSWORD' name='confirmPassword' onChange={(e) => handleChange(e)} value={form.confirmPassword} />
+					<button className='btn' onClick={() => submitRegister()}>
+						SUBMIT
+					</button>
 					<div className='register flex font-five'>
 						<p>Already have an account?</p>
 						<p id='register' onClick={() => toggleRegister()}>
@@ -50,14 +74,14 @@ export function Login({ toggleMenu }) {
 				</div>
 				<div className='overlay' onClick={() => toggleMenu('login')}></div>
 			</>
-		)
+		);
 	} else {
 		return (
 			<>
 				<div className='login flex-column'>
 					<p className='font-three'>LOGIN</p>
-					<input type='text' placeholder='EMAIL' name='email' onChange={handleChange} />
-					<input type='password' placeholder='PASSWORD' name='password' onChange={handleChange} />
+					<input type='text' placeholder='EMAIL' name='email' onChange={(e) => handleChange(e)} value={form.email} />
+					<input type='password' placeholder='PASSWORD' name='password' onChange={(e) => handleChange(e)} value={form.password} />
 					<button className='btn' onClick={() => submitLogin()}>
 						SUBMIT
 					</button>
@@ -70,6 +94,6 @@ export function Login({ toggleMenu }) {
 				</div>
 				<div className='overlay' onClick={() => toggleMenu('login')}></div>
 			</>
-		)
+		);
 	}
 }
