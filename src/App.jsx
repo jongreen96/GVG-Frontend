@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, redirect } from 'react-router-dom';
 import { selectUser } from './store/auth/authSlice.js';
 import { checkLoginStatus } from './store/auth/authAPI';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,7 @@ import About from './pages/About.jsx';
 import Account from './pages/Account.jsx';
 import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
+import PageNotFound from './pages/PageNotFound.jsx';
 
 function App() {
 	const dispatch = useDispatch();
@@ -27,9 +28,10 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/about' element={<About />} />
-				<Route path='/account' element={user ? <Account /> : <Home />} />
 				<Route path='/product' element={<Product />} />
 				<Route path='/products' element={<Products />} />
+				{user && <Route path='/account' element={<Account />} />}
+				<Route path='*' element={<PageNotFound />} />
 			</Routes>
 			<Footer />
 		</>
