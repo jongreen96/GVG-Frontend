@@ -19,6 +19,10 @@ nav {
     transform: translateX(-50%);
 }
 
+.nav-right {
+    position: relative;
+}
+
 .navbar-menu {
     justify-content: center;
 }
@@ -78,6 +82,18 @@ nav {
 }
 
 /* LOGIN */
+.login-status {
+    width: 11px;
+    height: 6px;
+    background-color: var(--cta);
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    bottom: 0px;
+    left: 9.75px;
+    z-index: 1;
+    pointer-events: none;
+}
+
 .login {
     background-color: var(--primary);
     position: absolute;

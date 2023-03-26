@@ -36,6 +36,7 @@ export default function NavBar() {
 						</Link>
 					</div>
 					<div className='nav-right flex'>
+						{user && <div className='login-status'></div>}
 						{user ? (
 							<Link to='/account'>
 								<img src={profileIcon} alt='Profile' className='icon' aria-label='Profile button' role='button' />
