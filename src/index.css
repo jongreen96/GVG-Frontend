@@ -145,6 +145,7 @@ html {
     font-size: var(--font-size);
     background-image: url(./assets/gvg-bg.png);
     background-position: center;
+    scroll-behavior: smooth;
 }
 
 .icon {
@@ -157,14 +158,21 @@ html {
     display: flex;
     flex-direction: column;
     background: linear-gradient(#0000, var(--primary));
+    align-items: center;
 }
 
 .page {
-    margin-inline: var(--full-size);
+    padding: 0 var(--full-size) var(--full-size) var(--full-size);
     flex: 1;
     max-width: 1280px;
-    margin: 0 auto;
-    padding: var(--full-size);
+    width: 100%;
+
+}
+
+@media screen and (max-width: 480px) {
+    .page {
+        padding-inline: var(--half-size);
+    }
 }
 
 .tile {

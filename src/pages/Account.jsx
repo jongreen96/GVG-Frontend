@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../store//auth/authSlice';
 import { logout } from '../store/auth/authAPI';
+import '../styles/account.css';
 
 export default function Account() {
 	const dispatch = useDispatch();
@@ -14,45 +15,91 @@ export default function Account() {
 	};
 
 	return (
-		<div className='page'>
-			<h1 className='font-one'>Account Info</h1>
-			<div className='tile flex-column'>
-				<div>
-					<h3 className='font-three'>Name:</h3>
-					<p className='font-four'>
-						{user.first_name} {user.last_name}
-					</p>
-				</div>
+		<div className='page account'>
+			<div>
+				<h1 className='font-one'>Account Info</h1>
+				<div className='tile flex-column'>
+					<div>
+						<h3 className='font-three'>Name:</h3>
+						<p className='font-four'>
+							{user.first_name} {user.last_name}
+						</p>
+					</div>
 
-				<div>
-					<h3 className='font-three'>Email:</h3>
-					<p className='font-four'>{user.email}</p>
-				</div>
+					<div>
+						<h3 className='font-three'>Email:</h3>
+						<p className='font-four'>{user.email}</p>
+					</div>
 
-				<div>
-					<h3 className='font-three'>Username:</h3>
-					{user.username ? <p className='font-four'>{user.username}</p> : <p className='font-five'>None</p>}
-				</div>
+					<div>
+						<h3 className='font-three'>Username:</h3>
+						{user.username ? <p className='font-four'>{user.username}</p> : <p className='font-five'>None</p>}
+					</div>
 
-				<div>
-					<h3 className='font-three'>Address:</h3>
-					{user.address ? <p className='font-four'>{user.address}</p> : <p className='font-five'>None</p>}
-				</div>
-			</div>
-
-			<h2 className='font-one'>Settings</h2>
-			<div className='tile flex-column'>
-				<div className='font-four'>
-					<p className='special-link'>Change account details</p>
-					<p className='special-link'>Switch between dark / light mode</p>
-					<p className='special-link'>Manage email preferences</p>
-					<p className='special-link' onClick={() => handleLogout()}>
-						Logout
-					</p>
+					<div>
+						<h3 className='font-three'>Address:</h3>
+						{user.address ? <p className='font-four'>{user.address}</p> : <p className='font-five'>None</p>}
+					</div>
 				</div>
 			</div>
 
-			<h2 className='font-one'>Order History</h2>
+			<div>
+				<h2 className='font-one'>Settings</h2>
+				<div className='tile flex-column'>
+					<div className='font-four'>
+						<p className='special-link'>Change account details</p>
+						<p className='special-link'>Switch between dark / light mode</p>
+						<p className='special-link'>Manage email preferences</p>
+						<p className='special-link' onClick={() => handleLogout()}>
+							Logout
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<h2 className='font-one'>Order History</h2>
+				<div className='tile flex-column'>
+					<div className='font-four'>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+						<p className='special-link'>Test Text to simulate page length</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }
