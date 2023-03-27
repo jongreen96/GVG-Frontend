@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { checkLoginStatus, login, register } from '../store/auth/authAPI';
+import { login, register } from '../store/auth/authAPI';
 
 export function Login({ toggleMenu }) {
 	const dispatch = useDispatch();
@@ -57,14 +57,18 @@ export function Login({ toggleMenu }) {
 			<>
 				<div className='login flex-column'>
 					<p className='font-three'>REGISTER</p>
-					<input type='text' placeholder='FIRST NAME' name='firstName' onChange={(e) => handleChange(e)} value={form.firstName} />
-					<input type='text' placeholder='LAST NAME' name='lastName' onChange={(e) => handleChange(e)} value={form.lastName} />
-					<input type='text' placeholder='EMAIL' name='email' onChange={(e) => handleChange(e)} value={form.email} />
-					<input type='password' placeholder='PASSWORD' name='password' onChange={(e) => handleChange(e)} value={form.password} />
-					<input type='password' placeholder='CONFIRM PASSWORD' name='confirmPassword' onChange={(e) => handleChange(e)} value={form.confirmPassword} />
-					<button className='btn' onClick={() => submitRegister()}>
-						SUBMIT
-					</button>
+
+					<form className='flex-column'>
+						<input type='text' placeholder='FIRST NAME' name='firstName' onChange={(e) => handleChange(e)} value={form.firstName} />
+						<input type='text' placeholder='LAST NAME' name='lastName' onChange={(e) => handleChange(e)} value={form.lastName} />
+						<input type='text' placeholder='EMAIL' name='email' onChange={(e) => handleChange(e)} value={form.email} />
+						<input type='password' placeholder='PASSWORD' name='password' onChange={(e) => handleChange(e)} value={form.password} />
+						<input type='password' placeholder='CONFIRM PASSWORD' name='confirmPassword' onChange={(e) => handleChange(e)} value={form.confirmPassword} />
+						<button type='submit' className='btn' onClick={() => submitRegister()}>
+							SUBMIT
+						</button>
+					</form>
+
 					<div className='register flex font-five'>
 						<p>Already have an account?</p>
 						<p id='register' onClick={() => toggleRegister()}>
@@ -72,6 +76,7 @@ export function Login({ toggleMenu }) {
 						</p>
 					</div>
 				</div>
+
 				<div className='overlay' onClick={() => toggleMenu('login')}></div>
 			</>
 		);
@@ -80,11 +85,15 @@ export function Login({ toggleMenu }) {
 			<>
 				<div className='login flex-column'>
 					<p className='font-three'>LOGIN</p>
-					<input type='text' placeholder='EMAIL' name='email' onChange={(e) => handleChange(e)} value={form.email} />
-					<input type='password' placeholder='PASSWORD' name='password' onChange={(e) => handleChange(e)} value={form.password} />
-					<button className='btn' onClick={() => submitLogin()}>
-						SUBMIT
-					</button>
+
+					<form className='flex-column'>
+						<input type='text' placeholder='EMAIL' name='email' onChange={(e) => handleChange(e)} value={form.email} />
+						<input type='password' placeholder='PASSWORD' name='password' onChange={(e) => handleChange(e)} value={form.password} />
+						<button type='submit' className='btn' onClick={() => submitLogin()}>
+							SUBMIT
+						</button>
+					</form>
+
 					<div className='register flex font-five'>
 						<p>Don't have an account?</p>
 						<p id='register' onClick={() => toggleRegister()}>
@@ -92,6 +101,7 @@ export function Login({ toggleMenu }) {
 						</p>
 					</div>
 				</div>
+
 				<div className='overlay' onClick={() => toggleMenu('login')}></div>
 			</>
 		);

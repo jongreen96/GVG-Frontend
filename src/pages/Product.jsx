@@ -3,5 +3,5 @@ export default function Product() {
 		<div className='page'>
 			<h1>Product Page</h1>
 		</div>
-	)
+	);
 }

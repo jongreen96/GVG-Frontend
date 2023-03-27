@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import '../styles/footer.css'
+import { Link } from 'react-router-dom';
+import '../styles/footer.css';
 
 export default function Footer() {
 	return (
@@ -7,6 +7,7 @@ export default function Footer() {
 			<div id='footer-1'>
 				<p>Green Vinyl Graphics © 2023</p>
 			</div>
+
 			<div className='flex' id='footer-2'>
 				<div className='footer-section'>
 					<Link to='/about'>
@@ -25,6 +26,7 @@ export default function Footer() {
 					</Link>
 				</div>
 			</div>
+
 			<div className='align-right' id='footer-3'>
 				<p>
 					Website designed by{' '}
@@ -34,5 +36,5 @@ export default function Footer() {
 				</p>
 			</div>
 		</footer>
-	)
+	);
 }

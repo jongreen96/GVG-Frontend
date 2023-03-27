@@ -105,7 +105,7 @@ nav {
     padding: var(--half-size);
 }
 
-.login>input {
+form>input {
     width: 100%;
     color: var(--secondary);
     border-radius: var(--half-size);
@@ -113,7 +113,7 @@ nav {
     border: 2px solid var(--secondary);
 }
 
-.login>input::placeholder {
+form>input::placeholder {
     color: var(--tertiary);
 }
 

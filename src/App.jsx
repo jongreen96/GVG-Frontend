@@ -1,17 +1,17 @@
-import { Routes, Route, redirect } from 'react-router-dom';
-import { selectUser } from './store/auth/authSlice.js';
-import { checkLoginStatus } from './store/auth/authAPI';
+import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { checkLoginStatus } from './store/auth/authAPI';
+import { selectUser } from './store/auth/authSlice';
 
-import Home from './pages/Home.jsx';
-import Products from './pages/Products.jsx';
-import Product from './pages/Product.jsx';
-import About from './pages/About.jsx';
-import Account from './pages/Account.jsx';
-import NavBar from './components/NavBar.jsx';
-import Footer from './components/Footer.jsx';
-import PageNotFound from './pages/PageNotFound.jsx';
+import Home from './pages/Home';
+import About from './pages/About';
+import Product from './pages/Product';
+import Account from './pages/Account';
+import Products from './pages/Products';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
 	const dispatch = useDispatch();
