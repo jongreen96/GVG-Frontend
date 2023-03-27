@@ -14,7 +14,7 @@
     --font-18: calc(var(--font-size) * 0.9);
     --font-20: var(--font-size);
     --font-25: calc(var(--font-size) * 1.25);
-    --font-50: calc(var(--font-size) * 2.5);
+    --font-40: calc(var(--font-size) * 2);
     --font-size-small: var(--font-size);
 
     /* Sizing */
@@ -99,9 +99,10 @@ h6 {
 .font-one {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: var(--font-50);
+    font-size: var(--font-40);
     color: var(--tertiary);
     margin-top: var(--full-size);
+    line-height: 1;
 }
 
 .font-two {
