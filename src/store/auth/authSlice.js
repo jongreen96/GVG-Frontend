@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { checkLoginStatus, login, register } from './authAPI';
+import { checkLoginStatus, login, logout, register } from './authAPI';
 
 const authSlice = createSlice({
 	name: 'auth',
@@ -16,7 +16,7 @@ const authSlice = createSlice({
 			})
 			.addCase(checkLoginStatus.fulfilled, (state, action) => {
 				state.status = 'succeeded';
-				state.user = action.payload;
+				state.user = action.payload.user;
 			})
 			.addCase(checkLoginStatus.rejected, (state, action) => {
 				state.status = 'failed';
@@ -27,7 +27,7 @@ const authSlice = createSlice({
 			})
 			.addCase(login.fulfilled, (state, action) => {
 				state.status = 'succeeded';
-				state.user = action.payload;
+				state.user = action.payload.user;
 			})
 			.addCase(login.rejected, (state, action) => {
 				state.status = 'failed';
@@ -41,6 +41,17 @@ const authSlice = createSlice({
 				state.user = action.payload;
 			})
 			.addCase(register.rejected, (state, action) => {
+				state.status = 'failed';
+				state.error = action.message;
+			})
+			.addCase(logout.pending, (state, action) => {
+				state.status = 'loading';
+			})
+			.addCase(logout.fulfilled, (state, action) => {
+				state.status = 'succeeded';
+				state.user = null;
+			})
+			.addCase(logout.rejected, (state, action) => {
 				state.status = 'failed';
 				state.error = action.message;
 			});

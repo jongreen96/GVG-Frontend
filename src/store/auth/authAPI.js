@@ -17,7 +17,7 @@ export const login = createAsyncThunk('auth/login', async (credentials) => {
 		const response = await axios.post('http://localhost:3000/login', credentials, {
 			withCredentials: true,
 		});
-		return response.data.user;
+		return response.data;
 	} catch (err) {
 		throw err;
 	}
@@ -25,7 +25,7 @@ export const login = createAsyncThunk('auth/login', async (credentials) => {
 
 export const logout = createAsyncThunk('auth/logout', async () => {
 	try {
-		const response = await axios.post('http://localhost:3000/logout');
+		await axios.post('http://localhost:3000/logout', {}, { withCredentials: true });
 	} catch (err) {
 		throw err;
 	}

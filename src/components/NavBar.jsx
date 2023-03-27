@@ -46,7 +46,7 @@ export default function NavBar() {
 						) : (
 							<img src={profileIcon} alt='Profile' onClick={() => toggleMenu('login')} className='icon' aria-label='Profile button' role='button' />
 						)}
-						<img src={basketIcon} alt='Basket' className='icon' aria-label='Basket button' role='button' />
+						<img src={basketIcon} alt='Basket' className='icon' aria-label='Basket button' role='button' onClick={() => console.log(user)} />
 					</div>
 				</div>
 

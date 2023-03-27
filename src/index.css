@@ -101,6 +101,7 @@ h6 {
     font-weight: bold;
     font-size: var(--font-50);
     color: var(--tertiary);
+    margin-top: var(--full-size);
 }
 
 .font-two {
@@ -161,6 +162,16 @@ html {
 .page {
     margin-inline: var(--full-size);
     flex: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--full-size);
+}
+
+.tile {
+    background-color: var(--primary);
+    border-radius: var(--half-size);
+    padding: var(--half-size);
+    box-shadow: 0 0 10px 0 var(--tertiary);
 }
 
 .overlay {
