@@ -1,0 +1,31 @@
+.account {
+    display: grid;
+    grid-template-areas:
+        "one three"
+        "two three"
+        "empty three";
+    grid-template-columns: 1fr 1fr;
+    gap: var(--half-size);
+}
+
+.account-info {
+    grid-area: one;
+}
+
+.account-settings {
+    grid-area: two;
+}
+
+.account-orders {
+    grid-area: three;
+}
+
+@media screen and (max-width: 768px) {
+    .account {
+        grid-template-areas:
+            "one"
+            "two"
+            "three";
+        grid-template-columns: 1fr;
+    }
+}

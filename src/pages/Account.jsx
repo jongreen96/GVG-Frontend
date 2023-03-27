@@ -16,7 +16,7 @@ export default function Account() {
 
 	return (
 		<div className='page account'>
-			<div>
+			<div className='account-info'>
 				<h1 className='font-one'>Account Info</h1>
 				<div className='tile flex-column'>
 					<div>
@@ -43,7 +43,7 @@ export default function Account() {
 				</div>
 			</div>
 
-			<div>
+			<div className='account-settings'>
 				<h2 className='font-one'>Settings</h2>
 				<div className='tile flex-column'>
 					<div className='font-four'>
@@ -57,7 +57,7 @@ export default function Account() {
 				</div>
 			</div>
 
-			<div>
+			<div className='account-orders'>
 				<h2 className='font-one'>Order History</h2>
 				<div className='tile flex-column'>
 					<div className='font-four'>
