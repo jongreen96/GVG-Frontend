@@ -26,9 +26,13 @@
     margin-bottom: var(--half-size);
 }
 
-.order>div {
+.order>.details {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.products-list {
+    margin: var(--half-size) 0;
 }
 
 @media screen and (max-width: 768px) {

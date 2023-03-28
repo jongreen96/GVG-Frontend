@@ -27,7 +27,11 @@ const orderSlice = createSlice({
 			})
 			.addCase(getOrderDetails.fulfilled, (state, action) => {
 				state.status = 'succeeded';
-				// TODO - update the order in the orders array
+				state.orders.forEach((order) => {
+					if (order.id === action.payload.id) {
+						order.items = action.payload.items;
+					}
+				});
 			})
 			.addCase(getOrderDetails.rejected, (state, action) => {
 				state.status = 'failed';

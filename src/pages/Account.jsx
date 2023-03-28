@@ -68,7 +68,7 @@ export default function Account() {
 
 			<div className='account-orders'>
 				<h2 className='font-one'>Order History</h2>
-				{orders ? orders.map((order) => <Order key={order.id} orderDetails={order} />) : <p className='font-five'>No orders found</p>}
+				{orders ? orders.map((order, i) => <Order key={i} orderDetails={order} />) : <p className='font-five'>No orders found</p>}
 			</div>
 		</div>
 	);
