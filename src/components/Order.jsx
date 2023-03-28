@@ -5,9 +5,9 @@ export default function Order({ orderDetails }) {
 	const { id, created, total, status } = orderDetails;
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(getOrderDetails(id));
-	}, []);
+	// useEffect(() => {
+	// 	dispatch(getOrderDetails(id));
+	// }, []);
 
 	return (
 		<div className='order tile'>
