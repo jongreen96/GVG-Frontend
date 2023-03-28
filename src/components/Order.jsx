@@ -25,7 +25,7 @@ export default function Order({ orderDetails }) {
 				</div>
 				<div>
 					<h3 className='font-three'>Date:</h3>
-					<p className='font-four'>{created}</p>
+					<p className='font-four'>{created.slice(0, 10).replaceAll('-', '/')}</p>
 				</div>
 			</div>
 
