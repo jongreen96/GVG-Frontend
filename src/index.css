@@ -101,7 +101,7 @@ h6 {
     font-weight: bold;
     font-size: var(--font-40);
     color: var(--tertiary);
-    margin-top: var(--full-size);
+    margin: var(--full-size) 0;
     line-height: 1;
 }
 

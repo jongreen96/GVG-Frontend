@@ -1,18 +1,27 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Order from '../components/Order';
 import { selectUser } from '../store//auth/authSlice';
 import { logout } from '../store/auth/authAPI';
+import { getOrders } from '../store/order/orderAPI';
+import { selectOrders } from '../store/order/orderSlice';
 import '../styles/account.css';
 
 export default function Account() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const user = useSelector(selectUser);
+	const orders = useSelector(selectOrders);
 
 	const handleLogout = () => {
 		dispatch(logout());
 		navigate('/');
 	};
+
+	useEffect(() => {
+		dispatch(getOrders());
+	}, []);
 
 	return (
 		<div className='page account'>
@@ -59,46 +68,7 @@ export default function Account() {
 
 			<div className='account-orders'>
 				<h2 className='font-one'>Order History</h2>
-				<div className='tile flex-column'>
-					<div className='font-four'>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-						<p className='special-link'>Test Text to simulate page length</p>
-					</div>
-				</div>
+				{orders ? orders.map((order) => <Order key={order.id} orderDetails={order} />) : <p className='font-five'>No orders found</p>}
 			</div>
 		</div>
 	);

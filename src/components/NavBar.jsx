@@ -22,6 +22,8 @@ export default function NavBar() {
 		setMenu({ menu: false, search: false, login: false, [button]: !menu[button] });
 	};
 
+	const state = useSelector((state) => state); // This is just to see the state in the console, remove before build
+
 	return (
 		<>
 			<nav className='bg-white' role='navigation' aria-label='main navigation'>
@@ -46,7 +48,7 @@ export default function NavBar() {
 						) : (
 							<img src={profileIcon} alt='Profile' onClick={() => toggleMenu('login')} className='icon' aria-label='Profile button' role='button' />
 						)}
-						<img src={basketIcon} alt='Basket' className='icon' aria-label='Basket button' role='button' onClick={() => console.log(user)} />
+						<img src={basketIcon} alt='Basket' className='icon' aria-label='Basket button' role='button' onClick={() => console.log(state)} /> {/* This is just to see the state in the console, remove onClick before build */}
 					</div>
 				</div>
 
