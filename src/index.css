@@ -6,6 +6,7 @@
     --secondary-svg: invert(26%) sepia(8%) saturate(79%) hue-rotate(251deg) brightness(90%) contrast(85%);
     --tertiary: #949294;
     --cta: #16A093;
+    --cta-svg: invert(43%) sepia(83%) saturate(390%) hue-rotate(125deg) brightness(101%) contrast(99%);
 
     /* Fonts */
     --font-family: 'Roboto', sans-serif;

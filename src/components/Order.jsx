@@ -1,4 +1,12 @@
+import downloadIcon from '../assets/download.svg';
+
 export default function Order({ orderDetails }) {
+	const handleDownload = (link) => {
+		return () => {
+			window.open(link, '_blank');
+		};
+	};
+
 	return (
 		<div className='order tile flex-column'>
 			<div className='order-details'>
@@ -17,19 +25,25 @@ export default function Order({ orderDetails }) {
 			</div>
 
 			<div className='products-list'>
-				<h3 className='font-three'>Products:</h3>
+				<div className='flex'>
+					<h3 className='font-three'>Products:</h3>
+					<p className='font-five'>click to download</p>
+				</div>
 				{orderDetails.items.map((item, i) => {
 					return (
-						<p key={i} className='font-four'>
-							{item.quantity} x {item.name}
-						</p>
+						<div key={i} className='product' onClick={handleDownload(item.download_link)}>
+							<img src={downloadIcon} alt='download' className='icon' />
+							<p className='font-four'>
+								{item.quantity} x {item.name}
+							</p>
+						</div>
 					);
 				})}
 			</div>
 
 			<div>
 				<h3 className='font-three'>Total:</h3>
-				<p className='font-four'>${orderDetails.total}</p>
+				<p className='font-four'>£{orderDetails.total}</p>
 			</div>
 		</div>
 	);

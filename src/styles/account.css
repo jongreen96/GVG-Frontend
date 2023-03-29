@@ -4,7 +4,8 @@
         "one three"
         "two three"
         "empty three";
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto;
+    grid-template-rows: min-content;
     gap: var(--half-size);
 }
 
@@ -34,6 +35,28 @@
 .products-list {
     margin: var(--half-size) 0;
 }
+
+.products-list>.flex {
+    align-items: baseline;
+}
+
+.product {
+    display: flex;
+    gap: var(--half-size);
+    align-items: center;
+    cursor: pointer;
+}
+
+.product:hover>p {
+    color: var(--cta);
+}
+
+.product>img {
+    width: var(--font-20);
+    filter: var(--cta-svg);
+}
+
+
 
 @media screen and (max-width: 768px) {
     .account {
