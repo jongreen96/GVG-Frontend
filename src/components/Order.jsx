@@ -12,7 +12,7 @@ export default function Order({ orderDetails }) {
 				</div>
 				<div>
 					<h3 className='font-three'>Date:</h3>
-					<p className='font-four'>{orderDetails.created.slice(0, 10)}</p>
+					<p className='font-four'>{orderDetails.created.slice(0, 10).replaceAll('-', '/')}</p>
 				</div>
 			</div>
 

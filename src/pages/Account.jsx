@@ -5,7 +5,7 @@ import Order from '../components/Order';
 import { selectUser } from '../store//auth/authSlice';
 import { logout } from '../store/auth/authAPI';
 import { getOrders } from '../store/order/orderAPI';
-import { selectOrders } from '../store/order/orderSlice';
+import { selectOrders, clearOrders } from '../store/order/orderSlice';
 import '../styles/account.css';
 
 export default function Account() {
@@ -16,6 +16,7 @@ export default function Account() {
 
 	const handleLogout = () => {
 		dispatch(logout());
+		dispatch(clearOrders());
 		navigate('/');
 	};
 
