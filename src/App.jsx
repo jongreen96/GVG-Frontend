@@ -1,7 +1,8 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { checkLoginStatus } from './store/auth/authAPI';
+import { getAllProducts } from './store/product/productAPI';
 import { selectUser } from './store/auth/authSlice';
 
 import Home from './pages/Home';
@@ -20,6 +21,7 @@ function App() {
 
 	useEffect(() => {
 		dispatch(checkLoginStatus());
+		dispatch(getAllProducts());
 	}, []);
 
 	return (
