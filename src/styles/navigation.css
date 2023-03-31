@@ -105,18 +105,6 @@ nav {
     padding: var(--half-size);
 }
 
-form>input {
-    width: 100%;
-    color: var(--secondary);
-    border-radius: var(--half-size);
-    padding-inline: var(--half-size);
-    border: 2px solid var(--secondary);
-}
-
-form>input::placeholder {
-    color: var(--tertiary);
-}
-
 .register {
     justify-content: space-between;
 }

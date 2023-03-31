@@ -4,8 +4,8 @@
         "one three"
         "two three"
         "empty three";
-    grid-template-columns: auto;
-    grid-template-rows: min-content;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content 1fr;
     gap: var(--half-size);
 }
 
@@ -55,8 +55,6 @@
     width: var(--font-20);
     filter: var(--cta-svg);
 }
-
-
 
 @media screen and (max-width: 768px) {
     .account {

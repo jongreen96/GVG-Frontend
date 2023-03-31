@@ -41,3 +41,14 @@ export const register = createAsyncThunk('auth/register', async (credentials) =>
 		throw err;
 	}
 });
+
+export const updateDetails = createAsyncThunk('auth/updateDetails', async (details) => {
+	try {
+		const response = await axios.put('http://localhost:3000/users', details, {
+			withCredentials: true,
+		});
+		return response.data;
+	} catch (err) {
+		throw err;
+	}
+});

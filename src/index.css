@@ -135,6 +135,12 @@ h6 {
     gap: var(--half-size);
 }
 
+.flex-end {
+    display: flex;
+    gap: var(--half-size);
+    justify-content: flex-end;
+}
+
 .flex-column {
     display: flex;
     gap: var(--half-size);
@@ -177,6 +183,18 @@ html {
     }
 }
 
+input {
+    width: 100%;
+    color: var(--secondary);
+    border-radius: var(--half-size);
+    padding-inline: var(--half-size);
+    border: 2px solid var(--secondary);
+}
+
+input::placeholder {
+    color: var(--tertiary);
+}
+
 .tile {
     background-color: var(--primary);
     border-radius: var(--half-size);
@@ -203,4 +221,10 @@ html {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.btn-naked {
+    background-color: transparent;
+    font-size: var(--font-16);
+    color: var(--tertiary);
 }
