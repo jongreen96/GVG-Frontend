@@ -1,0 +1,21 @@
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(199px, 1fr));
+    grid-gap: var(--half-size);
+}
+
+.product-tile {
+    display: grid;
+    grid-template-rows: min-content auto;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-details {
+    justify-content: space-between;
+    align-items: baseline;
+}

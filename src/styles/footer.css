@@ -15,11 +15,6 @@ footer {
     gap: var(--half-size);
 }
 
-.special-link {
-    color: var(--cta);
-    cursor: pointer;
-}
-
 @media screen and (max-width: 1024px) {
     footer {
         flex-direction: column;
