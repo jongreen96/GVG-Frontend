@@ -1,12 +1,11 @@
-import { useDispatch } from 'react-redux';
-import { setSearch } from '../store/search/searchSlice';
+import { useNavigate } from 'react-router-dom';
 
 export function Search({ toggleMenu }) {
-	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const handleChange = (e) => {
 		if (e.key === 'Enter') {
-			dispatch(setSearch(e.target.value));
+			navigate(`/products?search=${e.target.value}`);
 			toggleMenu('search');
 		}
 	};
