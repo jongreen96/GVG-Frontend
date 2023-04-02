@@ -10,26 +10,26 @@ export function MenuItems() {
 			</li>
 
 			<li className='navbar-item'>
-				<NavLink to='/products'>
-					<p>On Sale</p>
+				<NavLink to='/products?search=iphone'>
+					<p>iphones</p>
 				</NavLink>
 			</li>
 
 			<li className='navbar-item'>
-				<NavLink to='/products'>
-					<p>Phones</p>
+				<NavLink to='/products?search=ipad'>
+					<p>ipads</p>
 				</NavLink>
 			</li>
 
 			<li className='navbar-item'>
-				<NavLink to='/products'>
-					<p>Tablets</p>
+				<NavLink to='/products?search=nintendo'>
+					<p>consoles</p>
 				</NavLink>
 			</li>
 
 			<li className='navbar-item'>
-				<NavLink to='/products'>
-					<p>Consoles</p>
+				<NavLink to='/products?search=accessory'>
+					<p>accessories</p>
 				</NavLink>
 			</li>
 		</>
