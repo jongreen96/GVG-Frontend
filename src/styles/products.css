@@ -1,3 +1,4 @@
+/* PRODUCTS */
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(199px, 1fr));
@@ -20,4 +21,29 @@
 .product-details {
     justify-content: space-between;
     align-items: baseline;
+}
+
+/* PRODUCT */
+.product {
+    margin-top: var(--double-size);
+    display: grid;
+    grid-template-areas:
+        'image info'
+        'image description';
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: min-content 1fr;
+    align-items: start;
+    grid-gap: var(--half-size);
+}
+
+.product-images {
+    grid-area: image;
+}
+
+.product-info {
+    grid-area: info;
+}
+
+.product-description {
+    grid-area: description;
 }
