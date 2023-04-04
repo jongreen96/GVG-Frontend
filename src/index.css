@@ -176,7 +176,6 @@ html {
     flex: 1;
     max-width: 1280px;
     width: 100%;
-
 }
 
 @media screen and (max-width: 480px) {
@@ -224,6 +223,7 @@ input::placeholder {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
+    width: 100%;
 }
 
 .btn-naked {

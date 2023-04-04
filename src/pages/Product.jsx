@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectAllProducts } from '../store/product/productSlice';
+import { ProductTile } from '../components/ProductTile';
 
 export default function Product() {
 	const { productId } = useParams();
@@ -29,6 +30,24 @@ export default function Product() {
 						<p className='font-five'>{product.description}</p>
 					</div>
 				</div>
+
+				<section className='product-related-info'>
+					<div className='product-reviews tile'>
+						<h2 className='font-three'>Reviews</h2>
+						<p className='font-five'>No reviews yet</p>
+					</div>
+
+					<div className='related-products tile'>
+						<h2 className='font-three'>Related Products</h2>
+						<div>
+							{products
+								.filter((prod) => prod.category === product.category)
+								.map((prod) => {
+									return <ProductTile key={prod.id} product={prod} />;
+								})}
+						</div>
+					</div>
+				</section>
 			</div>
 		);
 	}
