@@ -1,6 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 export const ProductTile = ({ product }) => {
+	const navigate = useNavigate();
+
 	return (
-		<div className='product-tile tile'>
+		<div className='product-tile tile' onClick={() => navigate(`/products/${product.id}`)}>
 			<img src={product.images[0]} alt={product.name} />
 			<div className='product-info'>
 				<h3 className='font-four'>{product.name}</h3>
