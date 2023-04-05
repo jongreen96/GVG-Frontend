@@ -201,7 +201,6 @@ input::placeholder {
     border-radius: var(--half-size);
     padding: var(--half-size);
     box-shadow: 0 0 10px 0 var(--tertiary);
-    overflow: hidden;
 }
 
 .overlay {
@@ -235,4 +234,8 @@ input::placeholder {
 .special-link {
     color: var(--cta);
     cursor: pointer;
+}
+
+.tile .tile {
+    box-shadow: none;
 }

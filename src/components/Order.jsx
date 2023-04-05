@@ -31,7 +31,7 @@ export default function Order({ orderDetails }) {
 				</div>
 				{orderDetails.items.map((item, i) => {
 					return (
-						<div key={i} className='product' onClick={handleDownload(item.download_link)}>
+						<div key={i} className='order-product' onClick={handleDownload(item.download_link)}>
 							<img src={downloadIcon} alt='download' className='icon' />
 							<p className='font-four'>
 								{item.quantity} x {item.name}

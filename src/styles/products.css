@@ -8,7 +8,7 @@
 .product-tile {
     display: grid;
     grid-template-rows: min-content auto;
-    max-width: 300px;
+    max-width: 330px;
     cursor: pointer;
 }
 
@@ -31,44 +31,26 @@
 
 /* PRODUCT */
 .product {
-    margin-top: var(--double-size);
-    display: grid;
-    grid-template-areas:
-        'image info'
-        'image description';
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: min-content 1fr;
-    align-items: start;
-    grid-gap: var(--half-size);
-}
-
-.product-images {
-    grid-area: image;
-}
-
-.product-info {
-    grid-area: info;
-}
-
-.product-description {
-    grid-area: description;
-}
-
-.product-related-info {
-    margin-top: var(--half-size);
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: var(--half-size);
-}
-
-.related-products>div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: var(--half-size);
 }
 
-@media screen and (max-width: 1024px) {
-    .related-products>div {
-        grid-template-columns: 1fr;
-    }
+.related-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+}
+
+.desc {
+    overflow: hidden;
+    height: 300px;
+}
+
+.expand {
+    height: auto;
+}
+
+.more {
+    margin-top: var(--half-size);
+    text-align: center;
 }

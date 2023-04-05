@@ -40,18 +40,18 @@
     align-items: baseline;
 }
 
-.product {
+.order-product {
     display: flex;
     gap: var(--half-size);
     align-items: center;
     cursor: pointer;
 }
 
-.product:hover>p {
+.order-product:hover>p {
     color: var(--cta);
 }
 
-.product>img {
+.order-product>img {
     width: var(--font-20);
     filter: var(--cta-svg);
 }

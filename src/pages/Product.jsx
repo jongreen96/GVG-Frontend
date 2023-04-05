@@ -8,46 +8,60 @@ export default function Product() {
 	const products = useSelector(selectAllProducts);
 	let product = products?.find((product) => product.id === Number(productId));
 
+	const expand = () => {
+		const desc = document.querySelector('.desc');
+		desc.classList.toggle('expand');
+	};
+
 	if (!product) {
 		return <div className='page'>Product not found</div>;
 	} else {
 		return (
 			<div className='page'>
+				<h1 className='font-one'>{product.name}</h1>
+
 				<div className='product'>
-					<div className='product-images tile'>
-						<img src={product.images[0]} alt={product.title} />
-					</div>
+					<div className='flex-column'>
+						<div className='tile'>
+							<img src={product.images[0]} alt={product.title} />
+						</div>
 
-					<div className='product-info tile'>
-						<h1 className='font-two'>{product.name}</h1>
-						<p className='font-five'>{product.category}</p>
-						<p className='font-two'>£{product.price}</p>
-						<button className='btn'>Add to basket</button>
-					</div>
-
-					<div className='product-description tile'>
-						<h2 className='font-three'>Description</h2>
-						<p className='font-five'>{product.description}</p>
-					</div>
-				</div>
-
-				<section className='product-related-info'>
-					<div className='product-reviews tile'>
-						<h2 className='font-three'>Reviews</h2>
-						<p className='font-five'>No reviews yet</p>
-					</div>
-
-					<div className='related-products tile'>
-						<h2 className='font-three'>Related Products</h2>
-						<div>
-							{products
-								.filter((prod) => prod.category === product.category)
-								.map((prod) => {
-									return <ProductTile key={prod.id} product={prod} />;
-								})}
+						<div className='tile'>
+							<h2 className='font-three'>Reviews</h2>
+							<p className='font-five'>No reviews yet</p>
 						</div>
 					</div>
-				</section>
+
+					<div className='flex-column'>
+						<div className='tile'>
+							<h2 className='font-two'>{product.name}</h2>
+							<p className='font-five'>{product.category}</p>
+							<p className='font-two'>£{product.price}</p>
+							<button className='btn'>Add to basket</button>
+						</div>
+
+						<div className='tile product-description'>
+							<h2 className='font-three'>Description</h2>
+							<p className='font-five desc'>{product.description}</p>
+							<p className='font-five more special-link' onClick={() => expand()}>
+								Show More
+							</p>
+						</div>
+
+						<div className='tile'>
+							<h2 className='font-three'>Related Products</h2>
+							<div className='related-products'>
+								{products
+									.filter((prod) => prod.category === product.category)
+									.map((prod, i) => {
+										if (i < 4) {
+											return <ProductTile key={prod.id} product={prod} />;
+										}
+									})}
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}
