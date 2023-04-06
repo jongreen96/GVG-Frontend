@@ -10,7 +10,7 @@ export const ProductTile = ({ product }) => {
 				<h3 className='font-four'>{product.name}</h3>
 				<div className='product-tile-details flex'>
 					<h4 className='font-five'>{product.category}</h4>
-					<p className='font-four special-link'>£{product.price}</p>
+					<p className='font-four cta'>£{product.price}</p>
 				</div>
 			</div>
 		</div>
