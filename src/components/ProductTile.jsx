@@ -3,8 +3,13 @@ import { useNavigate } from 'react-router-dom';
 export const ProductTile = ({ product }) => {
 	const navigate = useNavigate();
 
+	const handleClick = () => {
+		navigate(`/products/${product.id}`);
+		window.scrollTo(0, 0);
+	};
+
 	return (
-		<div className='product-tile tile' onClick={() => navigate(`/products/${product.id}`)}>
+		<div className='product-tile tile' onClick={() => handleClick()}>
 			<img src={product.images[0]} alt={product.name} />
 			<div className='product-tile-info'>
 				<h3 className='font-four'>{product.name}</h3>
