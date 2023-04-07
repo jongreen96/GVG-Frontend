@@ -57,15 +57,33 @@ export default function Product() {
 
 					<div id='product-review' className='tile'>
 						<h2 className='font-three'>Reviews</h2>
-						<div className='review'>
-							{product.reviews?.map((review, i) => {
-								return (
-									<div className='review-item' key={i}>
-										<p className='font-five'>Score: {review.score}</p>
-										<p className='font-five'>{review.description}</p>
-									</div>
-								);
-							})}
+						<div className='review flex-column'>
+							{product.reviews ? (
+								product.reviews.map((review, i) => {
+									return (
+										<div className='review-item' key={i}>
+											<div>
+												<p className='font-four'>
+													{'★'.repeat(review.score)}
+													{` - ${review.first_name} ${review.last_name}`}
+												</p>
+												<p className='font-five'>
+													{review.created.slice(0, 10).replaceAll('-', '/')}
+												</p>
+											</div>
+											<p className='font-five'>{review.description}</p>
+											<div className='review-images'>
+												{review.images &&
+													review.images.map((img, i) => (
+														<img src={img} alt='review' key={i} />
+													))}
+											</div>
+										</div>
+									);
+								})
+							) : (
+								<p className='font-five'>No reviews yet</p>
+							)}
 						</div>
 					</div>
 

@@ -74,7 +74,6 @@
 @media screen and (min-width: 1024px) {
     .product {
         grid-template-columns: 2fr 1fr;
-        grid-template-rows: min-content min-content 1fr;
     }
 
     #product-image {
@@ -97,7 +96,7 @@
 
     #product-review {
         grid-column: 1 / 2;
-        grid-row: 3 / 6;
+        grid-row: 3 / 5;
         height: min-content;
     }
 
@@ -122,6 +121,13 @@
     text-align: center;
 }
 
-.review-item {
-    margin-bottom: var(--full-size);
+.review-item>div {
+    display: flex;
+    align-items: end;
+    gap: var(--half-size);
+}
+
+.review-images {
+    width: 100px;
+    border-radius: 50%;
 }
