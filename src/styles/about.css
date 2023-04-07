@@ -1,0 +1,22 @@
+.about-us>img {
+    height: 250px
+}
+
+.contact-form input {
+    max-width: 400px;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-form input {
+        max-width: 100%;
+    }
+
+    .about-us {
+        flex-direction: column;
+    }
+
+    .about-us>img {
+        height: 100%;
+
+    }
+}

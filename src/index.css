@@ -184,7 +184,8 @@ html {
     }
 }
 
-input {
+input,
+textarea {
     width: 100%;
     color: var(--secondary);
     border-radius: var(--half-size);
