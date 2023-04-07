@@ -121,3 +121,7 @@
     margin-top: var(--half-size);
     text-align: center;
 }
+
+.review-item {
+    margin-bottom: var(--full-size);
+}

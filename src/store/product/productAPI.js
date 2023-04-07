@@ -11,3 +11,18 @@ export const getAllProducts = createAsyncThunk('product/getAllProducts', async (
 		throw err;
 	}
 });
+
+export const getReviewsByProductId = createAsyncThunk('product/getReviewsByProductId', async (productId) => {
+		try {
+			const response = await axios.get(
+				`http://localhost:3000/reviews/${productId}`,
+				{
+					withCredentials: true,
+				}
+			);
+			return response.data;
+		} catch (err) {
+			throw err;
+		}
+	}
+)

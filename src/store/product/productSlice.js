@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllProducts } from './productAPI';
+import { getAllProducts, getReviewsByProductId } from './productAPI';
 
 const productSlice = createSlice({
 	name: 'product',
@@ -19,6 +19,22 @@ const productSlice = createSlice({
 				state.products = action.payload;
 			})
 			.addCase(getAllProducts.rejected, (state, action) => {
+				state.status = 'failed';
+				state.error = action.message;
+			})
+			.addCase(getReviewsByProductId.pending, (state, action) => {
+				state.status = 'loading';
+			})
+			.addCase(getReviewsByProductId.fulfilled, (state, action) => {
+				state.status = 'succeeded';
+				state.products = state.products?.map((product) => {
+					if (product.id === action.payload[0]?.product_id) {
+						product.reviews = action.payload;
+					}
+					return product;
+				});
+			})
+			.addCase(getReviewsByProductId.rejected, (state, action) => {
 				state.status = 'failed';
 				state.error = action.message;
 			});

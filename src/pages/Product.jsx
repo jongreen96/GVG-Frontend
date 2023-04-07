@@ -1,16 +1,20 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectAllProducts } from '../store/product/productSlice';
 import { ProductTile } from '../components/ProductTile';
 import { useEffect, useState } from 'react';
+import { getReviewsByProductId } from '../store/product/productAPI';
 
 export default function Product() {
+	const dispatch = useDispatch();
+
 	const { productId } = useParams();
 	const products = useSelector(selectAllProducts);
-	let product = products?.find((product) => product.id === Number(productId));
+	const product = products?.find((prod) => prod.id === Number(productId));
 
-	const description = document.querySelector('.desc');
-	const more = document.querySelector('.more');
+	useEffect(() => {
+		dispatch(getReviewsByProductId(Number(productId)));
+	}, [product]);
 
 	const [expand, setExpand] = useState(false);
 
@@ -37,17 +41,32 @@ export default function Product() {
 
 					<div id='product-description' className='tile product-description'>
 						<h2 className='font-three'>Description</h2>
-						<p className='font-five desc' style={expand ? { height: 'auto' } : { height: '455px' }}>
+						<p
+							className='font-five desc'
+							style={expand ? { height: 'auto' } : { height: '455px' }}
+						>
 							{product.description}
 						</p>
-						<p className='font-five more special-link' onClick={() => setExpand(!expand)}>
+						<p
+							className='font-five more special-link'
+							onClick={() => setExpand(!expand)}
+						>
 							{expand ? 'Show less' : 'Show More'}
 						</p>
 					</div>
 
 					<div id='product-review' className='tile'>
 						<h2 className='font-three'>Reviews</h2>
-						<p className='font-five'>No reviews yet</p>
+						<div className='review'>
+							{product.reviews?.map((review, i) => {
+								return (
+									<div className='review-item' key={i}>
+										<p className='font-five'>Score: {review.score}</p>
+										<p className='font-five'>{review.description}</p>
+									</div>
+								);
+							})}
+						</div>
 					</div>
 
 					<div id='product-related' className='tile'>
