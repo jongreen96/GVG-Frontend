@@ -13,6 +13,7 @@ import Products from './pages/Products';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import PageNotFound from './pages/PageNotFound';
+import { getCart } from './store/cart/orderAPI';
 
 function App() {
 	const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function App() {
 	useEffect(() => {
 		dispatch(checkLoginStatus());
 		dispatch(getAllProducts());
+		dispatch(getCart());
 	}, []);
 
 	return (
