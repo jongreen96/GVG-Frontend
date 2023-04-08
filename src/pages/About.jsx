@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/about.css';
+import { sendContactForm } from '../utilities/api';
 
 export default function About() {
 	const [formComplete, setFormComplete] = useState(false);
@@ -15,8 +16,8 @@ export default function About() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		sendContactForm(form);
 		setFormComplete(true);
-		// TODO: Send form data to server
 	};
 
 	return (
