@@ -95,7 +95,7 @@ nav {
     pointer-events: none;
 }
 
-.login {
+.login, .basket {
     background-color: var(--primary);
     position: absolute;
     bottom: 100;
@@ -117,9 +117,57 @@ nav {
 }
 
 @media screen and (max-width: 480px) {
-    .login {
+    .login, .basket {
         margin: 0;
         width: 100%;
         border-radius: 0 0 var(--half-size) var(--half-size);
     }
+}
+
+/* BASKET */
+.basket-header {
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.basket-list {
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.basket-item {
+    align-items: center;
+}
+
+.basket-item>:last-child {
+    margin-left: auto;
+    width: 25px;
+}
+
+.basket-item>img {
+    width: 25%;
+    border-radius: var(--half-size);
+}
+
+.basket-item>.icon {
+    filter: var(--tertiary-svg)
+}
+
+.basket-quantity {
+    position: absolute;
+    top: -2px;
+    right: -5px;
+    background-color: var(--cta);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
+.basket-quantity>p {
+    color: var(--primary);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 1px;
 }

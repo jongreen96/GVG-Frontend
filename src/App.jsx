@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from './store/auth/authSlice';
 import { checkLoginStatus } from './store/auth/authAPI';
 import { getAllProducts } from './store/product/productAPI';
-import { selectUser } from './store/auth/authSlice';
+import { getCart } from './store/cart/cartAPI';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -13,7 +14,6 @@ import Products from './pages/Products';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import PageNotFound from './pages/PageNotFound';
-import { getCart } from './store/cart/orderAPI';
 
 function App() {
 	const dispatch = useDispatch();

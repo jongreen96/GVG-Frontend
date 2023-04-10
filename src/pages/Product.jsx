@@ -4,17 +4,26 @@ import { selectAllProducts } from '../store/product/productSlice';
 import { ProductTile } from '../components/ProductTile';
 import { useEffect, useState } from 'react';
 import { getReviewsByProductId } from '../store/product/productAPI';
+import { addItem } from '../store/cart/cartAPI';
 
 export default function Product() {
 	const dispatch = useDispatch();
 
-	const { productId } = useParams();
+	let { productId } = useParams();
+	productId = Number(productId);
 	const products = useSelector(selectAllProducts);
-	const product = products?.find((prod) => prod.id === Number(productId));
+	const product = products?.find((prod) => prod.id === productId);
+	const [productLoaded, setProductLoaded] = useState(false);
 
 	useEffect(() => {
-		dispatch(getReviewsByProductId(Number(productId)));
+		if (product) {
+			setProductLoaded(true);
+		}
 	}, [product]);
+
+	useEffect(() => {
+		dispatch(getReviewsByProductId(productId));
+	}, [productLoaded, productId]);
 
 	const [expand, setExpand] = useState(false);
 
@@ -34,7 +43,11 @@ export default function Product() {
 						<h2 className='font-two'>{product.name}</h2>
 						<p className='font-five'>{product.category}</p>
 						<p className='font-two cta'>£{product.price}</p>
-						<button className='btn' type='button'>
+						<button
+							className='btn'
+							type='button'
+							onClick={() => dispatch(addItem(productId))}
+						>
 							Add to basket
 						</button>
 					</div>
