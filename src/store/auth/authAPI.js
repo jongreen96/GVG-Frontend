@@ -1,22 +1,21 @@
-import axios from 'axios';
+import api from '../../utilities/api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const checkLoginStatus = createAsyncThunk('auth/checkLoginStatus', async () => {
-	try {
-		const response = await axios.get('http://localhost:3000/auth', {
-			withCredentials: true,
-		});
-		return response.data;
-	} catch (err) {
-		throw err;
+export const checkLoginStatus = createAsyncThunk(
+	'auth/checkLoginStatus',
+	async () => {
+		try {
+			const response = await api.get('/auth');
+			return response.data;
+		} catch (err) {
+			throw err;
+		}
 	}
-});
+);
 
 export const login = createAsyncThunk('auth/login', async (credentials) => {
 	try {
-		const response = await axios.post('http://localhost:3000/login', credentials, {
-			withCredentials: true,
-		});
+		const response = await api.post('/login', credentials);
 		return response.data;
 	} catch (err) {
 		throw err;
@@ -25,30 +24,32 @@ export const login = createAsyncThunk('auth/login', async (credentials) => {
 
 export const logout = createAsyncThunk('auth/logout', async () => {
 	try {
-		await axios.post('http://localhost:3000/logout', {}, { withCredentials: true });
+		await api.post('/logout');
 	} catch (err) {
 		throw err;
 	}
 });
 
-export const register = createAsyncThunk('auth/register', async (credentials) => {
-	try {
-		const response = await axios.post('http://localhost:3000/register', credentials, {
-			withCredentials: true,
-		});
-		return response.data;
-	} catch (err) {
-		throw err;
+export const register = createAsyncThunk(
+	'auth/register',
+	async (credentials) => {
+		try {
+			const response = await api.post('/register', credentials);
+			return response.data;
+		} catch (err) {
+			throw err;
+		}
 	}
-});
+);
 
-export const updateDetails = createAsyncThunk('auth/updateDetails', async (details) => {
-	try {
-		const response = await axios.put('http://localhost:3000/users', details, {
-			withCredentials: true,
-		});
-		return response.data;
-	} catch (err) {
-		throw err;
+export const updateDetails = createAsyncThunk(
+	'auth/updateDetails',
+	async (details) => {
+		try {
+			const response = await api.put('/users', details);
+			return response.data;
+		} catch (err) {
+			throw err;
+		}
 	}
-});
+);
