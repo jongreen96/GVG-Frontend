@@ -21,7 +21,7 @@ export default function Footer() {
 					<Link to='/privacy'>
 						<p className='align-right'>Privacy Policy</p>
 					</Link>
-					<Link to='/about'>
+					<Link to='/terms'>
 						<p className='align-right'>Terms & Conditions</p>
 					</Link>
 				</div>
