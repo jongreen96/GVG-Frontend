@@ -18,7 +18,7 @@ export default function Footer() {
 					</Link>
 				</div>
 				<div className='footer-section'>
-					<Link to='/about'>
+					<Link to='/privacy'>
 						<p className='align-right'>Privacy Policy</p>
 					</Link>
 					<Link to='/about'>
@@ -30,7 +30,11 @@ export default function Footer() {
 			<div className='align-right' id='footer-3'>
 				<p>
 					Website designed by{' '}
-					<a href='https://www.jongreen.dev' target='_blank' className='special-link'>
+					<a
+						href='https://www.jongreen.dev'
+						target='_blank'
+						className='special-link'
+					>
 						jongreen.dev
 					</a>
 				</p>

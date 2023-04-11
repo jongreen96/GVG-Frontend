@@ -11,6 +11,7 @@ import About from './pages/About';
 import Product from './pages/Product';
 import Account from './pages/Account';
 import Products from './pages/Products';
+import Privacy from './pages/Privacy';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import PageNotFound from './pages/PageNotFound';
@@ -39,6 +40,7 @@ function App() {
 				<Route path='/about' element={<About />} />
 				<Route path='/products' element={<Products />} />
 				<Route path='/products/:productId' element={<Product />} />
+				<Route path='/privacy' element={<Privacy />} />
 				{user && <Route path='/account' element={<Account />} />}
 				<Route path='*' element={<PageNotFound />} />
 			</Routes>
