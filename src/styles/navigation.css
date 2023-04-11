@@ -95,7 +95,8 @@ nav {
     pointer-events: none;
 }
 
-.login, .basket {
+.login,
+.basket {
     background-color: var(--primary);
     position: absolute;
     bottom: 100;
@@ -117,7 +118,9 @@ nav {
 }
 
 @media screen and (max-width: 480px) {
-    .login, .basket {
+
+    .login,
+    .basket {
         margin: 0;
         width: 100%;
         border-radius: 0 0 var(--half-size) var(--half-size);
@@ -170,4 +173,12 @@ nav {
     font-weight: bold;
     text-align: center;
     margin-right: 1px;
+}
+
+.basket-item-info {
+    cursor: pointer;
+}
+
+.basket-item-info:hover>:first-child {
+    color: var(--cta);
 }

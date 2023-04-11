@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { selectCart } from '../store/cart/cartSlice';
 import cross from '../assets/cross.svg';
 import { removeItem } from '../store/cart/cartAPI';
 
 export function Basket({ toggleMenu }) {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const basket = useSelector(selectCart);
 
 	let total =
@@ -28,18 +30,30 @@ export function Basket({ toggleMenu }) {
 
 					<ul className='basket-list'>
 						{basket.map((item) => (
-							<div className='basket-item flex' key={item.product_id}>
+							<div
+								className='basket-item flex'
+								key={item.product_id}
+							>
 								<p className='font-five'>{item.quantity}x</p>
 								<img src={item.images[0]} alt={item.name} />
-								<div>
+								<div
+									className='basket-item-info'
+									onClick={() =>
+										navigate(`/products/${item.product_id}`)
+									}
+								>
 									<p className='font-four'>{item.name}</p>
-									<p className='font-four cta'>£{item.price * item.quantity}</p>
+									<p className='font-four cta'>
+										£{item.price * item.quantity}
+									</p>
 								</div>
 								<img
 									src={cross}
 									alt='cross'
 									className='icon'
-									onClick={(e) => removeItemFromBasket(item.product_id)}
+									onClick={(e) =>
+										removeItemFromBasket(item.product_id)
+									}
 								/>
 							</div>
 						))}
@@ -48,7 +62,10 @@ export function Basket({ toggleMenu }) {
 					<button className='btn'>Checkout</button>
 				</div>
 
-				<div className='overlay' onClick={() => toggleMenu('basket')}></div>
+				<div
+					className='overlay'
+					onClick={() => toggleMenu('basket')}
+				></div>
 			</>
 		);
 	} else {
@@ -62,7 +79,10 @@ export function Basket({ toggleMenu }) {
 					<p className='font-five'>Your basket is empty</p>
 				</div>
 
-				<div className='overlay' onClick={() => toggleMenu('basket')}></div>
+				<div
+					className='overlay'
+					onClick={() => toggleMenu('basket')}
+				></div>
 			</>
 		);
 	}
