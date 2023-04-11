@@ -23,8 +23,13 @@ function App() {
 	useEffect(() => {
 		dispatch(checkLoginStatus());
 		dispatch(getAllProducts());
-		dispatch(getCart());
 	}, []);
+
+	useEffect(() => {
+		if (user) {
+			dispatch(getCart());
+		}
+	}, [user]);
 
 	return (
 		<>

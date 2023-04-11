@@ -8,6 +8,7 @@ import { getOrders } from '../store/order/orderAPI';
 import { selectOrders, clearOrders } from '../store/order/orderSlice';
 import '../styles/account.css';
 import { UpdateDetails } from '../components/UpdateDetails';
+import { clearCart } from '../store/cart/cartSlice';
 
 export default function Account() {
 	const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function Account() {
 	const handleLogout = () => {
 		dispatch(logout());
 		dispatch(clearOrders());
+		dispatch(clearCart());
 		navigate('/');
 	};
 
@@ -49,16 +51,26 @@ export default function Account() {
 
 							<div>
 								<h3 className='font-three'>Username:</h3>
-								{user.username ? <p className='font-four'>{user.username}</p> : <p className='font-five'>None</p>}
+								{user.username ? (
+									<p className='font-four'>{user.username}</p>
+								) : (
+									<p className='font-five'>None</p>
+								)}
 							</div>
 
 							<div>
 								<h3 className='font-three'>Address:</h3>
-								{user.address ? <p className='font-four'>{user.address}</p> : <p className='font-five'>None</p>}
+								{user.address ? (
+									<p className='font-four'>{user.address}</p>
+								) : (
+									<p className='font-five'>None</p>
+								)}
 							</div>
 						</>
 					) : (
-						<UpdateDetails toggleUpdateDetails={toggleUpdateDetails} />
+						<UpdateDetails
+							toggleUpdateDetails={toggleUpdateDetails}
+						/>
 					)}
 				</div>
 			</div>
@@ -67,11 +79,17 @@ export default function Account() {
 				<h2 className='font-one'>Settings</h2>
 				<div className='tile flex-column'>
 					<div className='font-four'>
-						<p className='special-link' onClick={() => toggleUpdateDetails()}>
+						<p
+							className='special-link'
+							onClick={() => toggleUpdateDetails()}
+						>
 							Change account details
 						</p>
 						<p className='special-link'>Manage email preferences</p>
-						<p className='special-link' onClick={() => handleLogout()}>
+						<p
+							className='special-link'
+							onClick={() => handleLogout()}
+						>
 							Logout
 						</p>
 					</div>
@@ -80,7 +98,13 @@ export default function Account() {
 
 			<div className='account-orders'>
 				<h2 className='font-one'>Order History</h2>
-				{orders ? orders.map((order, i) => <Order key={i} orderDetails={order} />) : <p className='font-five'>No orders found</p>}
+				{orders ? (
+					orders.map((order, i) => (
+						<Order key={i} orderDetails={order} />
+					))
+				) : (
+					<p className='font-five'>No orders found</p>
+				)}
 			</div>
 		</div>
 	);

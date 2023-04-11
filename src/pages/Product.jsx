@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectAllProducts } from '../store/product/productSlice';
+import { selectUser } from '../store/auth/authSlice';
 import { ProductTile } from '../components/ProductTile';
 import { useEffect, useState } from 'react';
 import { getReviewsByProductId } from '../store/product/productAPI';
@@ -15,6 +16,8 @@ export default function Product() {
 	const product = products?.find((prod) => prod.id === productId);
 	const [productLoaded, setProductLoaded] = useState(false);
 
+	const user = useSelector(selectUser);
+
 	useEffect(() => {
 		if (product) {
 			setProductLoaded(true);
@@ -26,6 +29,12 @@ export default function Product() {
 	}, [productLoaded, productId]);
 
 	const [expand, setExpand] = useState(false);
+
+	const addToBasket = () => {
+		user
+			? dispatch(addItem(productId))
+			: document.getElementById('login').click();
+	};
 
 	if (!product) {
 		return <div className='page'>Product not found</div>;
@@ -46,17 +55,24 @@ export default function Product() {
 						<button
 							className='btn'
 							type='button'
-							onClick={() => dispatch(addItem(productId))}
+							onClick={() => addToBasket()}
 						>
 							Add to basket
 						</button>
 					</div>
 
-					<div id='product-description' className='tile product-description'>
+					<div
+						id='product-description'
+						className='tile product-description'
+					>
 						<h2 className='font-three'>Description</h2>
 						<p
 							className='font-five desc'
-							style={expand ? { height: 'auto' } : { height: '455px' }}
+							style={
+								expand
+									? { height: 'auto' }
+									: { height: '455px' }
+							}
 						>
 							{product.description}
 						</p>
@@ -81,15 +97,25 @@ export default function Product() {
 													{` - ${review.first_name} ${review.last_name}`}
 												</p>
 												<p className='font-five'>
-													{review.created.slice(0, 10).replaceAll('-', '/')}
+													{review.created
+														.slice(0, 10)
+														.replaceAll('-', '/')}
 												</p>
 											</div>
-											<p className='font-five'>{review.description}</p>
+											<p className='font-five'>
+												{review.description}
+											</p>
 											<div className='review-images'>
 												{review.images &&
-													review.images.map((img, i) => (
-														<img src={img} alt='review' key={i} />
-													))}
+													review.images.map(
+														(img, i) => (
+															<img
+																src={img}
+																alt='review'
+																key={i}
+															/>
+														)
+													)}
 											</div>
 										</div>
 									);
@@ -104,10 +130,17 @@ export default function Product() {
 						<h2 className='font-three'>Related Products</h2>
 						<div className='related-products'>
 							{products
-								.filter((prod) => prod.category === product.category)
+								.filter(
+									(prod) => prod.category === product.category
+								)
 								.map((prod, i) => {
 									if (i < 4) {
-										return <ProductTile key={prod.id} product={prod} />;
+										return (
+											<ProductTile
+												key={prod.id}
+												product={prod}
+											/>
+										);
 									}
 								})}
 						</div>

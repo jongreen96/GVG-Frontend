@@ -4,11 +4,15 @@ import { getCart, addItem, removeItem } from './cartAPI';
 const cartSlice = createSlice({
 	name: 'cart',
 	initialState: {
-		cart: null,
+		cart: [],
 		status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
 		error: null,
 	},
-	reducers: {},
+	reducers: {
+		clearCart: (state) => {
+			state.cart = [];
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(getCart.pending, (state, action) => {
@@ -27,7 +31,9 @@ const cartSlice = createSlice({
 			})
 			.addCase(removeItem.fulfilled, (state, action) => {
 				state.status = 'succeeded';
-				state.cart = state.cart.filter((item) => item.product_id !== action.payload.product_id);
+				state.cart = state.cart.filter(
+					(item) => item.product_id !== action.payload.product_id
+				);
 			})
 			.addCase(removeItem.rejected, (state, action) => {
 				state.status = 'failed';
@@ -38,7 +44,11 @@ const cartSlice = createSlice({
 			})
 			.addCase(addItem.fulfilled, (state, action) => {
 				state.status = 'succeeded';
-				if (state.cart.find((item) => item.product_id === action.payload.product_id)) {
+				if (
+					state.cart?.find(
+						(item) => item.product_id === action.payload.product_id
+					)
+				) {
 					state.cart = state.cart.map((item) => {
 						if (item.product_id === action.payload.product_id) {
 							item.quantity = action.payload.quantity;

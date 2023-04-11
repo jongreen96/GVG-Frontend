@@ -38,7 +38,11 @@ export default function NavBar() {
 
 	return (
 		<>
-			<nav className='bg-white' role='navigation' aria-label='main navigation'>
+			<nav
+				className='bg-white'
+				role='navigation'
+				aria-label='main navigation'
+			>
 				<div className='navbar flex'>
 					<div className='nav-left flex'>
 						<img
@@ -85,6 +89,7 @@ export default function NavBar() {
 								className='icon'
 								aria-label='Profile button'
 								role='button'
+								id='login'
 							/>
 						)}
 						<img
