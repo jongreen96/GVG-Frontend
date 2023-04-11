@@ -10,7 +10,9 @@ export function Basket({ toggleMenu }) {
 	const basket = useSelector(selectCart);
 
 	let total =
-		basket?.reduce((acc, item) => acc + item.price * item.quantity, 0) || 0;
+		basket
+			?.reduce((acc, item) => acc + item.price * item.quantity, 0)
+			.toFixed(2) || 0;
 
 	const removeItemFromBasket = (id) => {
 		dispatch(removeItem(id));
