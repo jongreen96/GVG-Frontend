@@ -25,7 +25,10 @@ export function Login({ toggleMenu }) {
 		setForm({ ...form, [e.target.name]: e.target.value });
 	};
 
-	const submitLogin = () => {
+	const submitLogin = (e) => {
+		if (e) {
+			e.preventDefault();
+		}
 		dispatch(
 			login({
 				email: form.email,
@@ -36,7 +39,8 @@ export function Login({ toggleMenu }) {
 		setForm(emptyForm);
 	};
 
-	const submitRegister = () => {
+	const submitRegister = (e) => {
+		e.preventDefault();
 		if (form.password === form.confirmPassword) {
 			dispatch(
 				register({
@@ -45,8 +49,7 @@ export function Login({ toggleMenu }) {
 					firstName: form.firstName,
 					lastName: form.lastName,
 				})
-			);
-			submitLogin();
+			).then(() => submitLogin());
 			toggleMenu('login');
 			setForm(emptyForm);
 		}
@@ -59,12 +62,46 @@ export function Login({ toggleMenu }) {
 					<p className='font-three'>REGISTER</p>
 
 					<form className='flex-column'>
-						<input type='text' placeholder='FIRST NAME' name='firstName' onChange={(e) => handleChange(e)} value={form.firstName} />
-						<input type='text' placeholder='LAST NAME' name='lastName' onChange={(e) => handleChange(e)} value={form.lastName} />
-						<input type='text' placeholder='EMAIL' name='email' onChange={(e) => handleChange(e)} value={form.email} />
-						<input type='password' placeholder='PASSWORD' name='password' onChange={(e) => handleChange(e)} value={form.password} />
-						<input type='password' placeholder='CONFIRM PASSWORD' name='confirmPassword' onChange={(e) => handleChange(e)} value={form.confirmPassword} />
-						<button type='submit' className='btn' onClick={() => submitRegister()}>
+						<input
+							type='text'
+							placeholder='FIRST NAME'
+							name='firstName'
+							onChange={(e) => handleChange(e)}
+							value={form.firstName}
+						/>
+						<input
+							type='text'
+							placeholder='LAST NAME'
+							name='lastName'
+							onChange={(e) => handleChange(e)}
+							value={form.lastName}
+						/>
+						<input
+							type='text'
+							placeholder='EMAIL'
+							name='email'
+							onChange={(e) => handleChange(e)}
+							value={form.email}
+						/>
+						<input
+							type='password'
+							placeholder='PASSWORD'
+							name='password'
+							onChange={(e) => handleChange(e)}
+							value={form.password}
+						/>
+						<input
+							type='password'
+							placeholder='CONFIRM PASSWORD'
+							name='confirmPassword'
+							onChange={(e) => handleChange(e)}
+							value={form.confirmPassword}
+						/>
+						<button
+							type='submit'
+							className='btn'
+							onClick={(e) => submitRegister(e)}
+						>
 							SUBMIT
 						</button>
 					</form>
@@ -77,7 +114,10 @@ export function Login({ toggleMenu }) {
 					</div>
 				</div>
 
-				<div className='overlay' onClick={() => toggleMenu('login')}></div>
+				<div
+					className='overlay'
+					onClick={() => toggleMenu('login')}
+				></div>
 			</>
 		);
 	} else {
@@ -87,9 +127,25 @@ export function Login({ toggleMenu }) {
 					<p className='font-three'>LOGIN</p>
 
 					<form className='flex-column'>
-						<input type='text' placeholder='EMAIL' name='email' onChange={(e) => handleChange(e)} value={form.email} />
-						<input type='password' placeholder='PASSWORD' name='password' onChange={(e) => handleChange(e)} value={form.password} />
-						<button type='submit' className='btn' onClick={() => submitLogin()}>
+						<input
+							type='text'
+							placeholder='EMAIL'
+							name='email'
+							onChange={(e) => handleChange(e)}
+							value={form.email}
+						/>
+						<input
+							type='password'
+							placeholder='PASSWORD'
+							name='password'
+							onChange={(e) => handleChange(e)}
+							value={form.password}
+						/>
+						<button
+							type='submit'
+							className='btn'
+							onClick={(e) => submitLogin(e)}
+						>
 							SUBMIT
 						</button>
 					</form>
@@ -102,7 +158,10 @@ export function Login({ toggleMenu }) {
 					</div>
 				</div>
 
-				<div className='overlay' onClick={() => toggleMenu('login')}></div>
+				<div
+					className='overlay'
+					onClick={() => toggleMenu('login')}
+				></div>
 			</>
 		);
 	}
