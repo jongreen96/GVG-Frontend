@@ -4,6 +4,12 @@ export function MenuItems() {
 	return (
 		<>
 			<li className='navbar-item'>
+				<NavLink to='/'>
+					<p>Home</p>
+				</NavLink>
+			</li>
+
+			<li className='navbar-item'>
 				<NavLink to='/products'>
 					<p>All Products</p>
 				</NavLink>

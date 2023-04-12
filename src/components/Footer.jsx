@@ -11,10 +11,7 @@ export default function Footer() {
 			<div className='flex' id='footer-2'>
 				<div className='footer-section'>
 					<Link to='/about'>
-						<p>About Us</p>
-					</Link>
-					<Link to='/about'>
-						<p>Contact Us</p>
+						<p>About / Contact Us</p>
 					</Link>
 				</div>
 				<div className='footer-section'>
