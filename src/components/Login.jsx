@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login, register } from '../store/auth/authAPI';
 
+import googleIcon from '../assets/icons/google.svg';
+import facebookIcon from '../assets/icons/facebook.svg';
+import twitterIcon from '../assets/icons/twitter.svg';
+
 export function Login({ toggleMenu }) {
 	const dispatch = useDispatch();
 
@@ -106,6 +110,32 @@ export function Login({ toggleMenu }) {
 						</button>
 					</form>
 
+					<div className='flex other'>
+						<div className='tile'>
+							<img
+								src={googleIcon}
+								alt='google'
+								className='icon cta'
+							/>
+						</div>
+
+						<div className='tile'>
+							<img
+								src={facebookIcon}
+								alt='facebook'
+								className='icon cta'
+							/>
+						</div>
+
+						<div className='tile'>
+							<img
+								src={twitterIcon}
+								alt='twitter'
+								className='icon cta'
+							/>
+						</div>
+					</div>
+
 					<div className='register flex font-five'>
 						<p>Already have an account?</p>
 						<p id='register' onClick={() => toggleRegister()}>
@@ -149,6 +179,32 @@ export function Login({ toggleMenu }) {
 							SUBMIT
 						</button>
 					</form>
+
+					<div className='flex other'>
+						<div className='tile'>
+							<img
+								src={googleIcon}
+								alt='google'
+								className='icon cta'
+							/>
+						</div>
+
+						<div className='tile'>
+							<img
+								src={facebookIcon}
+								alt='facebook'
+								className='icon cta'
+							/>
+						</div>
+
+						<div className='tile'>
+							<img
+								src={twitterIcon}
+								alt='twitter'
+								className='icon cta'
+							/>
+						</div>
+					</div>
 
 					<div className='register flex font-five'>
 						<p>Don't have an account?</p>

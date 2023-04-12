@@ -245,4 +245,5 @@ input::placeholder {
 
 .cta {
     color: var(--cta);
+    filter: var(--cta-svg);
 }

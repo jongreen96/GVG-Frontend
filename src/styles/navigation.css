@@ -117,6 +117,12 @@ nav {
     cursor: pointer;
 }
 
+.other>div {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width: 480px) {
 
     .login,
