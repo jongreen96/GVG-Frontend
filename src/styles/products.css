@@ -1,5 +1,7 @@
 /* PRODUCTS */
-.products {
+.products,
+#categories,
+#best-sellers {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(199px, 1fr));
     grid-gap: var(--half-size);
@@ -130,4 +132,8 @@
 .review-images {
     width: 100px;
     border-radius: 50%;
+}
+
+#categories {
+    text-align: center;
 }
