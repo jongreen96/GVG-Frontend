@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import '../styles/about.css';
 import { sendContactForm } from '../utilities/api';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../store/auth/authSlice';
 
 export default function About() {
+	const user = useSelector(selectUser);
+
 	const [formComplete, setFormComplete] = useState(false);
 	const [form, setForm] = useState({
-		name: '',
-		email: '',
+		name: (user && `${user.first_name} ${user.last_name}`) || '',
+		email: user?.email || '',
 		message: '',
 	});
 
@@ -72,7 +76,7 @@ export default function About() {
 									type='text'
 									name='name'
 									required
-									placeholder='John Doe'
+									// placeholder='John Doe'
 									onChange={(e) => handleChange(e)}
 									value={form.name}
 								/>
@@ -84,7 +88,7 @@ export default function About() {
 									type='email'
 									name='email'
 									required
-									placeholder='JohnDoe@example.com'
+									// placeholder='JohnDoe@example.com'
 									onChange={(e) => handleChange(e)}
 									value={form.email}
 								/>
@@ -96,7 +100,7 @@ export default function About() {
 							name='message'
 							rows='4'
 							required
-							placeholder='Enter message here'
+							placeholder='Enter message here...'
 							onChange={(e) => handleChange(e)}
 							value={form.message}
 						/>
