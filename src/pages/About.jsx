@@ -71,6 +71,7 @@ export default function About() {
 								<input
 									type='text'
 									name='name'
+									required
 									placeholder='John Doe'
 									onChange={(e) => handleChange(e)}
 									value={form.name}
@@ -82,6 +83,7 @@ export default function About() {
 								<input
 									type='email'
 									name='email'
+									required
 									placeholder='JohnDoe@example.com'
 									onChange={(e) => handleChange(e)}
 									value={form.email}
@@ -93,6 +95,7 @@ export default function About() {
 						<textarea
 							name='message'
 							rows='4'
+							required
 							placeholder='Enter message here'
 							onChange={(e) => handleChange(e)}
 							value={form.message}
