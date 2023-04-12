@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../store/auth/authSlice';
 import { selectCartAmount } from '../store/cart/cartSlice';
@@ -17,6 +17,7 @@ import { Login } from './Login';
 import { Basket } from './Basket';
 
 export default function NavBar() {
+	const location = useLocation();
 	const user = useSelector(selectUser);
 	const cartAmount = useSelector(selectCartAmount);
 	const [menu, setMenu] = useState({
@@ -35,6 +36,10 @@ export default function NavBar() {
 			[button]: !menu[button],
 		});
 	};
+
+	useEffect(() => {
+		toggleMenu('none');
+	}, [location]);
 
 	return (
 		<>
