@@ -1,4 +1,4 @@
-import downloadIcon from '../assets/download.svg';
+import downloadIcon from '../assets/icons/download.svg';
 
 export default function Order({ orderDetails }) {
 	const handleDownload = (link) => {
@@ -20,7 +20,9 @@ export default function Order({ orderDetails }) {
 				</div>
 				<div>
 					<h3 className='font-three'>Date:</h3>
-					<p className='font-four'>{orderDetails.created.slice(0, 10).replaceAll('-', '/')}</p>
+					<p className='font-four'>
+						{orderDetails.created.slice(0, 10).replaceAll('-', '/')}
+					</p>
 				</div>
 			</div>
 
@@ -31,8 +33,16 @@ export default function Order({ orderDetails }) {
 				</div>
 				{orderDetails.items.map((item, i) => {
 					return (
-						<div key={i} className='order-product' onClick={handleDownload(item.download_link)}>
-							<img src={downloadIcon} alt='download' className='icon' />
+						<div
+							key={i}
+							className='order-product'
+							onClick={handleDownload(item.download_link)}
+						>
+							<img
+								src={downloadIcon}
+								alt='download'
+								className='icon'
+							/>
 							<p className='font-four'>
 								{item.quantity} x {item.name}
 							</p>

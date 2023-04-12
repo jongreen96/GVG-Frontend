@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectCart } from '../store/cart/cartSlice';
-import cross from '../assets/cross.svg';
+import cross from '../assets/icons/cross.svg';
 import { removeItem } from '../store/cart/cartAPI';
 
 export function Basket({ toggleMenu }) {
