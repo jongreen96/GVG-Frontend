@@ -11,6 +11,7 @@ import About from './pages/About';
 import Product from './pages/Product';
 import Account from './pages/Account';
 import Products from './pages/Products';
+import Checkout from './pages/Checkout';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import NavBar from './components/NavBar';
@@ -44,6 +45,7 @@ function App() {
 				<Route path='/privacy' element={<Privacy />} />
 				<Route path='/terms' element={<Terms />} />
 				{user && <Route path='/account' element={<Account />} />}
+				{user && <Route path='/checkout' element={<Checkout />} />}
 				<Route path='*' element={<PageNotFound />} />
 			</Routes>
 			<Footer />
