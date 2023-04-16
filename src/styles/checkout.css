@@ -1,0 +1,37 @@
+.checkout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--half-size);
+}
+
+.checkout>div {
+    height: min-content;
+}
+
+.checkout .basket {
+    position: relative;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.checkout .basket-list {
+    max-height: none;
+}
+
+.checkout .overlay,
+.checkout #checkout {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .checkout {
+        grid-template-columns: 1fr;
+    }    
+}
+
+#payment-message {
+    margin-top: var(--half-size);
+    text-align: center;
+    color: var(--secondary);
+}

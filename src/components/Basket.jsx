@@ -53,7 +53,9 @@ export function Basket({ toggleMenu }) {
 					</ul>
 
 					<Link to='/checkout'>
-						<button className='btn'>Checkout</button>
+						<button className='btn' id='checkout'>
+							Checkout
+						</button>
 					</Link>
 				</div>
 

@@ -7,7 +7,16 @@ const api = axios.create({
 
 export const sendContactForm = (data) => {
 	try {
-		return api.post('http://localhost:3000/contact', data);
+		return api.post('/contact', data);
+	} catch (err) {
+		throw err;
+	}
+};
+
+export const paymentIntent = async (total) => {
+	try {
+		const response = await api.post('/create-payment-intent', { total });
+		return response.data.clientSecret;
 	} catch (err) {
 		throw err;
 	}

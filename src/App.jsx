@@ -17,6 +17,7 @@ import Terms from './pages/Terms';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import PageNotFound from './pages/PageNotFound';
+import Confirmation from './pages/Confirmation';
 
 function App() {
 	const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
 				<Route path='/terms' element={<Terms />} />
 				{user && <Route path='/account' element={<Account />} />}
 				{user && <Route path='/checkout' element={<Checkout />} />}
+				{user && <Route path='/confirmation' element={<Confirmation />} />}
 				<Route path='*' element={<PageNotFound />} />
 			</Routes>
 			<Footer />
