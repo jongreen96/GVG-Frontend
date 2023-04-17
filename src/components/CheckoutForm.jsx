@@ -34,7 +34,9 @@ export default function CheckoutForm() {
 					setMessage('Your payment is processing.');
 					break;
 				case 'requires_payment_method':
-					setMessage('Your payment was not successful, please try again.');
+					setMessage(
+						'Your payment was not successful, please try again.'
+					);
 					break;
 				default:
 					setMessage('Something went wrong.');
@@ -81,24 +83,32 @@ export default function CheckoutForm() {
 	};
 
 	return (
-		<form id='payment-form' onSubmit={handleSubmit}>
-			<PaymentElement id='payment-element' options={paymentElementOptions} />
-			<button
-				className='btn'
-				disabled={isLoading || !stripe || !elements}
-				id='submit'
-				style={{ marginTop: '0.5rem' }}
-			>
-				<span id='button-text'>
-					{isLoading ? <div className='spinner' id='spinner'></div> : 'Pay now'}
-				</span>
-			</button>
-			{/* Show any error or success messages */}
-			{message && (
-				<div id='payment-message' className='font-four'>
-					{message}
-				</div>
-			)}
-		</form>
+		<>
+			<h2 className='font-two'>Payment</h2>
+			<form id='payment-form' onSubmit={handleSubmit}>
+				<PaymentElement
+					id='payment-element'
+					options={paymentElementOptions}
+				/>
+
+				<button
+					className='btn'
+					disabled={isLoading || !stripe || !elements}
+					id='submit'
+					style={{ marginTop: '0.5rem' }}
+				>
+					<span id='button-text'>
+						{isLoading ? 'Processing…' : 'Submit order'}
+					</span>
+				</button>
+
+				{/* Show any error or success messages */}
+				{message && (
+					<div id='payment-message' className='font-four'>
+						{message}
+					</div>
+				)}
+			</form>
+		</>
 	);
 }

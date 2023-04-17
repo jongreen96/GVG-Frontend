@@ -1,5 +1,4 @@
 import '../styles/checkout.css';
-import { Basket } from '../components/Basket';
 import { useSelector } from 'react-redux';
 import { selectCart } from '../store/cart/cartSlice';
 import { useEffect, useState } from 'react';
@@ -44,11 +43,39 @@ export default function Checkout() {
 
 	return (
 		<div className='page'>
+			<p
+				className='back font-five cta'
+				onClick={() => window.history.back()}
+			>
+				&lt; Back
+			</p>
+
 			<h1 className='font-one'>Checkout</h1>
 
 			<div className='checkout'>
 				<div className='tile'>
-					<Basket />
+					<h2 className='font-two'>Basket</h2>
+					{basket?.map((item, i) => {
+						return (
+							<div className='item flex' key={i}>
+								<img src={item.images[0]} alt={item.name} />
+								<div className='info'>
+									<h3 className='font-four'>{item.name}</h3>
+									<p className='font-four'>
+										{item.description}
+									</p>
+									<p className='font-four cta'>
+										£{item.price}
+									</p>
+								</div>
+							</div>
+						);
+					})}
+					<div className='total'>
+						<h4 className='font-three'>
+							Total: <span className='cta'>£{total}</span>
+						</h4>
+					</div>
 				</div>
 
 				<div className='tile'>

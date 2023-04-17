@@ -97,19 +97,23 @@ export default function NavBar() {
 								id='login'
 							/>
 						)}
-						<img
-							src={basketIcon}
-							alt='Basket'
-							className='icon'
-							aria-label='Basket button'
-							role='button'
-							onClick={() => toggleMenu('basket')}
-						/>
-						{cartAmount !== 0 && (
-							<div className='basket-quantity'>
-								<p>{cartAmount}</p>
-							</div>
+						{location.pathname !== '/checkout' && (
+							<img
+								src={basketIcon}
+								alt='Basket'
+								className='icon'
+								aria-label='Basket button'
+								role='button'
+								onClick={() => toggleMenu('basket')}
+							/>
 						)}
+
+						{cartAmount !== 0 &&
+							location.pathname !== '/checkout' && (
+								<div className='basket-quantity'>
+									<p>{cartAmount}</p>
+								</div>
+							)}
 					</div>
 				</div>
 
