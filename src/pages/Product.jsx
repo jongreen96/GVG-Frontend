@@ -41,6 +41,12 @@ export default function Product() {
 	} else {
 		return (
 			<div className='page'>
+				<p
+					className='back font-five cta'
+					onClick={() => window.history.back()}
+				>
+					&lt; Back
+				</p>
 				<h1 className='font-one'>{product.name}</h1>
 
 				<div className='product'>

@@ -32,6 +32,12 @@ export default function Account() {
 
 	return (
 		<div className='page account'>
+			<p
+				className='back font-five cta'
+				onClick={() => window.history.back()}
+			>
+				&lt; Back
+			</p>
 			<div className='account-info'>
 				<h1 className='font-one'>Account Info</h1>
 				<div className='tile flex-column'>

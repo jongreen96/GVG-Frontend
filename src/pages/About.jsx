@@ -26,6 +26,12 @@ export default function About() {
 
 	return (
 		<div className='page'>
+			<p
+				className='back font-five cta'
+				onClick={() => window.history.back()}
+			>
+				&lt; Back
+			</p>
 			<h1 className='font-one'>About Us</h1>
 			<div className='tile about-us flex'>
 				<p className='font-five'>

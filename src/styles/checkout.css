@@ -8,26 +8,29 @@
     height: min-content;
 }
 
-.checkout .basket {
-    position: relative;
-    width: auto;
-    margin: 0;
-    padding: 0;
+.item>img {
+    max-width: 30%;
 }
 
-.checkout .basket-list {
-    max-height: none;
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.checkout .overlay,
-.checkout #checkout {
-    display: none;
+.total {
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (max-width: 700px) {
     .checkout {
         grid-template-columns: 1fr;
-    }    
+    }
+}
+
+#payment-form {
+    margin-top: var(--half-size);
 }
 
 #payment-message {

@@ -247,3 +247,8 @@ input::placeholder {
     color: var(--cta);
     filter: var(--cta-svg);
 }
+
+.back {
+    margin-top: var(--half-size);
+    margin-bottom: -0.75rem;
+}

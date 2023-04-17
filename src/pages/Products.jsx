@@ -8,10 +8,18 @@ export default function Products() {
 	const location = useLocation();
 	const search = new URLSearchParams(location.search).get('search');
 
-	const products = useSelector(selectAllProducts)?.filter((product) => product.name.toLowerCase().includes(search?.toLowerCase() || ''));
+	const products = useSelector(selectAllProducts)?.filter((product) =>
+		product.name.toLowerCase().includes(search?.toLowerCase() || '')
+	);
 
 	return (
 		<div className='page'>
+			<p
+				className='back font-five cta'
+				onClick={() => window.history.back()}
+			>
+				&lt; Back
+			</p>
 			<h1 className='font-one'>All Products</h1>
 			<div className='products'>
 				{products?.map((product) => {
