@@ -1,1 +1,9 @@
+/* /index.html 200
+/products/* /index.html 200
+/account/* /index.html 200
+/about/* /index.html 200
+/privacy/* /index.html 200
+/terms/* /index.html 200
+/checkout/* /index.html 200
+
 /api/*  https://gvg-backend.herokuapp.com/:splat  200
