@@ -7,7 +7,7 @@ export default function Back() {
 
 	if (location.pathname === '/confirmation') {
 		return (
-			<div className='back' onClick={() => navigate(-1)}>
+			<div className='back' onClick={() => navigate('/')}>
 				<img src={backIcon} alt='back' className='back icon cta' />
 				<p className='back font-four cta'>Home</p>
 			</div>
