@@ -34,9 +34,7 @@ export default function CheckoutForm() {
 					setMessage('Your payment is processing.');
 					break;
 				case 'requires_payment_method':
-					setMessage(
-						'Your payment was not successful, please try again.'
-					);
+					setMessage('Your payment was not successful, please try again.');
 					break;
 				default:
 					setMessage('Something went wrong.');
@@ -60,7 +58,7 @@ export default function CheckoutForm() {
 			elements,
 			confirmParams: {
 				// Make sure to change this to your payment completion page
-				return_url: 'http://localhost:5173/confirmation',
+				return_url: 'https://greenvinylgraphics.com/confirmation',
 			},
 		});
 
@@ -86,10 +84,7 @@ export default function CheckoutForm() {
 		<>
 			<h2 className='font-two'>Payment</h2>
 			<form id='payment-form' onSubmit={handleSubmit}>
-				<PaymentElement
-					id='payment-element'
-					options={paymentElementOptions}
-				/>
+				<PaymentElement id='payment-element' options={paymentElementOptions} />
 
 				<button
 					className='btn'
