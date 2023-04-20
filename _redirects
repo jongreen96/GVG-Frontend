@@ -1,3 +1,4 @@
-/* /index.html/:splat 200
+/* https://greenvinylgraphics.com/:splat 200
+
 
 /api/*  https://gvg-backend.herokuapp.com/:splat  200
