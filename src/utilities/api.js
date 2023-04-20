@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-	baseURL: 'https://gvg-backend.herokuapp.com/',
+	baseURL: 'https://gvg-backend.herokuapp.com',
 	withCredentials: true,
 });
 
