@@ -3,6 +3,7 @@ import { selectAllProducts } from '../store/product/productSlice';
 import { ProductTile } from '../components/ProductTile';
 import '../styles/products.css';
 import { useLocation } from 'react-router-dom';
+import Back from '../components/Back';
 
 export default function Products() {
 	const location = useLocation();
@@ -14,12 +15,8 @@ export default function Products() {
 
 	return (
 		<div className='page'>
-			<p
-				className='back font-five cta'
-				onClick={() => window.history.back()}
-			>
-				&lt; Back
-			</p>
+			<Back />
+
 			<h1 className='font-one'>All Products</h1>
 			<div className='products'>
 				{products?.map((product) => {

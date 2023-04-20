@@ -6,6 +6,7 @@ import { ProductTile } from '../components/ProductTile';
 import { useEffect, useState } from 'react';
 import { getReviewsByProductId } from '../store/product/productAPI';
 import { addItem } from '../store/cart/cartAPI';
+import Back from '../components/Back';
 
 export default function Product() {
 	const dispatch = useDispatch();
@@ -41,12 +42,8 @@ export default function Product() {
 	} else {
 		return (
 			<div className='page'>
-				<p
-					className='back font-five cta'
-					onClick={() => window.history.back()}
-				>
-					&lt; Back
-				</p>
+				<Back />
+
 				<h1 className='font-one'>{product.name}</h1>
 
 				<div className='product'>
@@ -58,27 +55,16 @@ export default function Product() {
 						<h2 className='font-two'>{product.name}</h2>
 						<p className='font-five'>{product.category}</p>
 						<p className='font-two cta'>£{product.price}</p>
-						<button
-							className='btn'
-							type='button'
-							onClick={() => addToBasket()}
-						>
+						<button className='btn' type='button' onClick={() => addToBasket()}>
 							Add to basket
 						</button>
 					</div>
 
-					<div
-						id='product-description'
-						className='tile product-description'
-					>
+					<div id='product-description' className='tile product-description'>
 						<h2 className='font-three'>Description</h2>
 						<p
 							className='font-five desc'
-							style={
-								expand
-									? { height: 'auto' }
-									: { height: '455px' }
-							}
+							style={expand ? { height: 'auto' } : { height: '455px' }}
 						>
 							{product.description}
 						</p>
@@ -103,25 +89,15 @@ export default function Product() {
 													{` - ${review.first_name} ${review.last_name}`}
 												</p>
 												<p className='font-five'>
-													{review.created
-														.slice(0, 10)
-														.replaceAll('-', '/')}
+													{review.created.slice(0, 10).replaceAll('-', '/')}
 												</p>
 											</div>
-											<p className='font-five'>
-												{review.description}
-											</p>
+											<p className='font-five'>{review.description}</p>
 											<div className='review-images'>
 												{review.images &&
-													review.images.map(
-														(img, i) => (
-															<img
-																src={img}
-																alt='review'
-																key={i}
-															/>
-														)
-													)}
+													review.images.map((img, i) => (
+														<img src={img} alt='review' key={i} />
+													))}
 											</div>
 										</div>
 									);
@@ -136,17 +112,10 @@ export default function Product() {
 						<h2 className='font-three'>Related Products</h2>
 						<div className='related-products'>
 							{products
-								.filter(
-									(prod) => prod.category === product.category
-								)
+								.filter((prod) => prod.category === product.category)
 								.map((prod, i) => {
 									if (i < 4) {
-										return (
-											<ProductTile
-												key={prod.id}
-												product={prod}
-											/>
-										);
+										return <ProductTile key={prod.id} product={prod} />;
 									}
 								})}
 						</div>

@@ -9,6 +9,7 @@ import { selectOrders, clearOrders } from '../store/order/orderSlice';
 import '../styles/account.css';
 import { UpdateDetails } from '../components/UpdateDetails';
 import { clearCart } from '../store/cart/cartSlice';
+import Back from '../components/Back';
 
 export default function Account() {
 	const dispatch = useDispatch();
@@ -31,86 +32,73 @@ export default function Account() {
 	}, []);
 
 	return (
-		<div className='page account'>
-			<p
-				className='back font-five cta'
-				onClick={() => window.history.back()}
-			>
-				&lt; Back
-			</p>
-			<div className='account-info'>
-				<h1 className='font-one'>Account Info</h1>
-				<div className='tile flex-column'>
-					{!updateDetails ? (
-						<>
-							<div>
-								<h3 className='font-three'>Name:</h3>
-								<p className='font-four'>
-									{user.first_name} {user.last_name}
-								</p>
-							</div>
+		<div className='page'>
+			<Back />
+			<div className='account'>
+				<div className='account-info'>
+					<h1 className='font-one'>Account Info</h1>
+					<div className='tile flex-column'>
+						{!updateDetails ? (
+							<>
+								<div>
+									<h3 className='font-three'>Name:</h3>
+									<p className='font-four'>
+										{user.first_name} {user.last_name}
+									</p>
+								</div>
 
-							<div>
-								<h3 className='font-three'>Email:</h3>
-								<p className='font-four'>{user.email}</p>
-							</div>
+								<div>
+									<h3 className='font-three'>Email:</h3>
+									<p className='font-four'>{user.email}</p>
+								</div>
 
-							<div>
-								<h3 className='font-three'>Username:</h3>
-								{user.username ? (
-									<p className='font-four'>{user.username}</p>
-								) : (
-									<p className='font-five'>None</p>
-								)}
-							</div>
+								<div>
+									<h3 className='font-three'>Username:</h3>
+									{user.username ? (
+										<p className='font-four'>{user.username}</p>
+									) : (
+										<p className='font-five'>None</p>
+									)}
+								</div>
 
-							<div>
-								<h3 className='font-three'>Address:</h3>
-								{user.address ? (
-									<p className='font-four'>{user.address}</p>
-								) : (
-									<p className='font-five'>None</p>
-								)}
-							</div>
-						</>
-					) : (
-						<UpdateDetails
-							toggleUpdateDetails={toggleUpdateDetails}
-						/>
-					)}
-				</div>
-			</div>
-
-			<div className='account-settings'>
-				<h2 className='font-one'>Settings</h2>
-				<div className='tile flex-column'>
-					<div className='font-four'>
-						<p
-							className='special-link'
-							onClick={() => toggleUpdateDetails()}
-						>
-							Change account details
-						</p>
-						<p className='special-link'>Manage email preferences</p>
-						<p
-							className='special-link'
-							onClick={() => handleLogout()}
-						>
-							Logout
-						</p>
+								<div>
+									<h3 className='font-three'>Address:</h3>
+									{user.address ? (
+										<p className='font-four'>{user.address}</p>
+									) : (
+										<p className='font-five'>None</p>
+									)}
+								</div>
+							</>
+						) : (
+							<UpdateDetails toggleUpdateDetails={toggleUpdateDetails} />
+						)}
 					</div>
 				</div>
-			</div>
 
-			<div className='account-orders'>
-				<h2 className='font-one'>Order History</h2>
-				{orders ? (
-					orders.map((order, i) => (
-						<Order key={i} orderDetails={order} />
-					))
-				) : (
-					<p className='font-five'>No orders found</p>
-				)}
+				<div className='account-settings'>
+					<h2 className='font-one'>Settings</h2>
+					<div className='tile flex-column'>
+						<div className='font-four'>
+							<p className='special-link' onClick={() => toggleUpdateDetails()}>
+								Change account details
+							</p>
+							<p className='special-link'>Manage email preferences</p>
+							<p className='special-link' onClick={() => handleLogout()}>
+								Logout
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div className='account-orders'>
+					<h2 className='font-one'>Order History</h2>
+					{orders ? (
+						orders.map((order, i) => <Order key={i} orderDetails={order} />)
+					) : (
+						<p className='font-five'>No orders found</p>
+					)}
+				</div>
 			</div>
 		</div>
 	);

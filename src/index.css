@@ -249,6 +249,10 @@ input::placeholder {
 }
 
 .back {
-    margin-top: var(--half-size);
-    margin-bottom: -0.75rem;
+    display: flex;
+    align-items: center;
+    gap: var(--quarter-size);
+    margin-top: var(--quarter-size);
+    margin-bottom: -0.3rem;
+    cursor: pointer;
 }

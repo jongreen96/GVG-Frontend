@@ -6,6 +6,7 @@ import { paymentIntent } from '../utilities/api';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../components/CheckoutForm';
+import Back from '../components/Back';
 
 const stripePromise = loadStripe('pk_test_DXtaGIXSvQX3ww0FVnt23HDM');
 
@@ -43,12 +44,7 @@ export default function Checkout() {
 
 	return (
 		<div className='page'>
-			<p
-				className='back font-five cta'
-				onClick={() => window.history.back()}
-			>
-				&lt; Back
-			</p>
+			<Back />
 
 			<h1 className='font-one'>Checkout</h1>
 
@@ -61,12 +57,8 @@ export default function Checkout() {
 								<img src={item.images[0]} alt={item.name} />
 								<div className='info'>
 									<h3 className='font-four'>{item.name}</h3>
-									<p className='font-four'>
-										{item.description}
-									</p>
-									<p className='font-four cta'>
-										£{item.price}
-									</p>
+									<p className='font-four'>{item.description}</p>
+									<p className='font-four cta'>£{item.price}</p>
 								</div>
 							</div>
 						);
