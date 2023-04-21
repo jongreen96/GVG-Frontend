@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getOrders } from './orderAPI';
+import { getOrders, createOrder } from './orderAPI';
 
 const orderSlice = createSlice({
 	name: 'order',
 	initialState: {
-		orders: null,
+		orders: [],
 		status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
 		error: null,
 	},
@@ -23,6 +23,17 @@ const orderSlice = createSlice({
 				state.orders = action.payload;
 			})
 			.addCase(getOrders.rejected, (state, action) => {
+				state.status = 'failed';
+				state.error = action.message;
+			})
+			.addCase(createOrder.pending, (state, action) => {
+				state.status = 'loading';
+			})
+			.addCase(createOrder.fulfilled, (state, action) => {
+				state.status = 'succeeded';
+				state.orders = [...state.orders, action.payload];
+			})
+			.addCase(createOrder.rejected, (state, action) => {
 				state.status = 'failed';
 				state.error = action.message;
 			});

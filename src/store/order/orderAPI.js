@@ -9,3 +9,17 @@ export const getOrders = createAsyncThunk('order/getOrders', async () => {
 		throw err;
 	}
 });
+
+export const createOrder = createAsyncThunk(
+	'order/createOrder',
+	async (paymentIntent) => {
+		try {
+			const response = await api.post('/carts/checkout', {
+				paymentIntent,
+			});
+			return response.data;
+		} catch (err) {
+			throw err;
+		}
+	}
+);

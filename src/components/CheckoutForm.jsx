@@ -4,8 +4,13 @@ import {
 	useStripe,
 	useElements,
 } from '@stripe/react-stripe-js';
+import { useDispatch } from 'react-redux';
+import { createOrder } from '../store/order/orderAPI';
+import { useNavigate } from 'react-router';
 
 export default function CheckoutForm() {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const stripe = useStripe();
 	const elements = useElements();
 
@@ -29,12 +34,16 @@ export default function CheckoutForm() {
 			switch (paymentIntent.status) {
 				case 'succeeded':
 					setMessage('Payment succeeded!');
+					dispatch(createOrder(paymentIntent.id));
+					navigate('/confirmation');
 					break;
 				case 'processing':
 					setMessage('Your payment is processing.');
 					break;
 				case 'requires_payment_method':
-					setMessage('Your payment was not successful, please try again.');
+					setMessage(
+						'Your payment was not successful, please try again.'
+					);
 					break;
 				default:
 					setMessage('Something went wrong.');
@@ -58,7 +67,7 @@ export default function CheckoutForm() {
 			elements,
 			confirmParams: {
 				// Make sure to change this to your payment completion page
-				return_url: 'https://greenvinylgraphics.com/confirmation',
+				return_url: 'https://greenvinylgraphics.com/checkout',
 			},
 		});
 
@@ -84,7 +93,10 @@ export default function CheckoutForm() {
 		<>
 			<h2 className='font-two'>Payment</h2>
 			<form id='payment-form' onSubmit={handleSubmit}>
-				<PaymentElement id='payment-element' options={paymentElementOptions} />
+				<PaymentElement
+					id='payment-element'
+					options={paymentElementOptions}
+				/>
 
 				<button
 					className='btn'
