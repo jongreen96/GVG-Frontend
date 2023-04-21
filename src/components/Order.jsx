@@ -3,7 +3,9 @@ import downloadIcon from '../assets/icons/download.svg';
 export default function Order({ orderDetails }) {
 	const handleDownload = (link) => {
 		return () => {
-			window.open(link, '_blank');
+			if (link) {
+				window.open(link, '_blank');
+			}
 		};
 	};
 
@@ -38,11 +40,7 @@ export default function Order({ orderDetails }) {
 							className='order-product'
 							onClick={handleDownload(item.download_link)}
 						>
-							<img
-								src={downloadIcon}
-								alt='download'
-								className='icon'
-							/>
+							<img src={downloadIcon} alt='download' className='icon' />
 							<p className='font-four'>
 								{item.quantity} x {item.name}
 							</p>
