@@ -31,7 +31,7 @@ export default function Order({ orderDetails }) {
 					<h3 className='font-three'>Products:</h3>
 					<p className='font-five'>click to download</p>
 				</div>
-				{orderDetails.items.map((item, i) => {
+				{orderDetails.items?.map((item, i) => {
 					return (
 						<div
 							key={i}

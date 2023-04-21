@@ -7,6 +7,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { createOrder } from '../store/order/orderAPI';
 import { useNavigate } from 'react-router';
+import { clearCart } from '../store/cart/cartSlice';
 
 export default function CheckoutForm() {
 	const dispatch = useDispatch();
@@ -35,6 +36,7 @@ export default function CheckoutForm() {
 				case 'succeeded':
 					setMessage('Payment succeeded!');
 					dispatch(createOrder(paymentIntent.id));
+					dispatch(clearCart());
 					navigate('/confirmation');
 					break;
 				case 'processing':
@@ -67,7 +69,7 @@ export default function CheckoutForm() {
 			elements,
 			confirmParams: {
 				// Make sure to change this to your payment completion page
-				return_url: 'https://greenvinylgraphics.com/checkout',
+				return_url: 'http://localhost:5173/checkout',
 			},
 		});
 
