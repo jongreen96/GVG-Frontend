@@ -46,7 +46,7 @@ export default function About() {
 					friendly customer service. We invite you to check out our reviews and
 					see for yourself why our customers love us!
 				</p>
-				<img src='https://i.etsystatic.com/17366700/r/il/0d8bf6/4326201893/il_1588xN.4326201893_itn2.jpg' />
+				<img src='https://greenvinylgraphics.com/iphone-14-pro-max.png' />
 			</div>
 
 			<h2 className='font-one'>Get in touch</h2>

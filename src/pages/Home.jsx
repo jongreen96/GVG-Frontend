@@ -22,7 +22,7 @@ export default function Home() {
 				<div id='categories'>
 					<div className='tile'>
 						<img
-							src='https://i.etsystatic.com/17366700/r/il/2532a6/3500367506/il_1588xN.3500367506_jt5y.jpg'
+							src='https://greenvinylgraphics.com/iphone-14-pro-max.png'
 							alt='All Products'
 						/>
 						<h3 className='font-three'>All Products</h3>
@@ -30,7 +30,7 @@ export default function Home() {
 
 					<div className='tile'>
 						<img
-							src='https://i.etsystatic.com/17366700/r/il/2532a6/3500367506/il_1588xN.3500367506_jt5y.jpg'
+							src='https://greenvinylgraphics.com/iphone-14-pro-max.png'
 							alt='All Products'
 						/>
 						<h3 className='font-three'>Bundles</h3>
@@ -38,7 +38,7 @@ export default function Home() {
 
 					<div className='tile'>
 						<img
-							src='https://i.etsystatic.com/17366700/r/il/2532a6/3500367506/il_1588xN.3500367506_jt5y.jpg'
+							src='https://greenvinylgraphics.com/iphone-14-pro-max.png'
 							alt='All Products'
 						/>
 						<h3 className='font-three'>Reviews</h3>
@@ -46,7 +46,7 @@ export default function Home() {
 
 					<div className='tile'>
 						<img
-							src='https://i.etsystatic.com/17366700/r/il/2532a6/3500367506/il_1588xN.3500367506_jt5y.jpg'
+							src='https://greenvinylgraphics.com/iphone-14-pro-max.png'
 							alt='All Products'
 						/>
 						<h3 className='font-three'>Decals</h3>
@@ -54,7 +54,7 @@ export default function Home() {
 
 					<div className='tile'>
 						<img
-							src='https://i.etsystatic.com/17366700/r/il/2532a6/3500367506/il_1588xN.3500367506_jt5y.jpg'
+							src='https://greenvinylgraphics.com/iphone-14-pro-max.png'
 							alt='All Products'
 						/>
 						<h3 className='font-three'>Consoles</h3>
@@ -64,9 +64,7 @@ export default function Home() {
 				<h2 className='font-one'>All Products</h2>
 				<div className='products'>
 					{products?.map((product) => {
-						return (
-							<ProductTile key={product.id} product={product} />
-						);
+						return <ProductTile key={product.id} product={product} />;
 					})}
 				</div>
 			</div>
