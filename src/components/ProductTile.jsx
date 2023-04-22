@@ -12,9 +12,9 @@ export const ProductTile = ({ product }) => {
 		<div className='product-tile tile' onClick={() => handleClick()}>
 			<img src={product.images[0]} alt={product.name} />
 			<div className='product-tile-info'>
-				<h3 className='font-four'>{product.name}</h3>
+				<h2 className='font-four'>{product.name}</h2>
 				<div className='product-tile-details flex'>
-					<h4 className='font-five'>{product.category}</h4>
+					<h3 className='font-five'>{product.category}</h3>
 					<p className='font-four cta'>£{product.price}</p>
 				</div>
 			</div>
