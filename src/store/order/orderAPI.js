@@ -23,3 +23,18 @@ export const createOrder = createAsyncThunk(
 		}
 	}
 );
+
+export const setDownloaded = createAsyncThunk(
+	'order/setDownloaded',
+	async ({ id, productId }) => {
+		try {
+			const response = await api.post(`/orders/downloaded`, {
+				id,
+				productId,
+			});
+			return response.data;
+		} catch (err) {
+			throw err;
+		}
+	}
+);

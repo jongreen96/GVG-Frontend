@@ -1,10 +1,15 @@
+import { useDispatch } from 'react-redux';
 import downloadIcon from '../assets/icons/download.svg';
+import { setDownloaded } from '../store/order/orderAPI';
 
 export default function Order({ orderDetails }) {
-	const handleDownload = (link) => {
+	const dispatch = useDispatch();
+	const handleDownload = (link, productId) => {
 		return () => {
 			if (link) {
 				window.open(link, '_blank');
+				const itemInfo = { id: orderDetails.id, productId };
+				dispatch(setDownloaded(itemInfo));
 			}
 		};
 	};
@@ -38,7 +43,7 @@ export default function Order({ orderDetails }) {
 						<div
 							key={i}
 							className='order-product'
-							onClick={handleDownload(item.download_link)}
+							onClick={handleDownload(item.download_link, item.product_id)}
 						>
 							<img src={downloadIcon} alt='download' className='icon' />
 							<p className='font-four'>

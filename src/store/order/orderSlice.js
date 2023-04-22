@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getOrders, createOrder } from './orderAPI';
+import { getOrders, createOrder, setDownloaded } from './orderAPI';
 
 const orderSlice = createSlice({
 	name: 'order',
@@ -34,6 +34,16 @@ const orderSlice = createSlice({
 				state.orders = [...state.orders, { ...action.payload }];
 			})
 			.addCase(createOrder.rejected, (state, action) => {
+				state.status = 'failed';
+				state.error = action.message;
+			})
+			.addCase(setDownloaded.pending, (state, action) => {
+				state.status = 'loading';
+			})
+			.addCase(setDownloaded.fulfilled, (state, action) => {
+				state.status = 'succeeded';
+			})
+			.addCase(setDownloaded.rejected, (state, action) => {
 				state.status = 'failed';
 				state.error = action.message;
 			});
