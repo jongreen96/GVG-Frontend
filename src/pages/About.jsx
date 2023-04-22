@@ -46,7 +46,7 @@ export default function About() {
 					friendly customer service. We invite you to check out our reviews and
 					see for yourself why our customers love us!
 				</p>
-				<img src='https://greenvinylgraphics.com/iphone-14-pro-max.png' />
+				<img src='https://gvg-backend.herokuapp.com/iphone-14-pro-max.png' />
 			</div>
 
 			<h2 className='font-one'>Get in touch</h2>
