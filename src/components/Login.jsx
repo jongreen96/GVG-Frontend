@@ -2,10 +2,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login, register } from '../store/auth/authAPI';
 
-import googleIcon from '../assets/icons/google.svg';
-import facebookIcon from '../assets/icons/facebook.svg';
-import twitterIcon from '../assets/icons/twitter.svg';
-
 export function Login({ toggleMenu }) {
 	const dispatch = useDispatch();
 
