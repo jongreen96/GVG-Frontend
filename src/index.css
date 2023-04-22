@@ -226,12 +226,14 @@ input::placeholder {
     text-transform: uppercase;
     font-weight: bold;
     width: 100%;
+    cursor: pointer;
 }
 
 .btn-naked {
     background-color: transparent;
     font-size: var(--font-16);
     color: var(--tertiary);
+    cursor: pointer;
 }
 
 .special-link {

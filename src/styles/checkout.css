@@ -38,3 +38,20 @@
     text-align: center;
     color: var(--secondary);
 }
+
+/* Confirmation */
+.page:has(#confirmation) {
+    display: flex;
+    flex-direction: column;
+}
+
+#confirmation {
+    max-width: 600px;
+    align-self: center;
+}
+
+#confirmation>.tile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--half-size);
+}
