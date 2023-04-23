@@ -35,6 +35,7 @@ nav {
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
+    min-height: var(--quarter-size);
 }
 
 .nav-left>:nth-child(1) {

@@ -126,7 +126,7 @@ export default function NavBar() {
 					<MenuItems />
 				</ul>
 
-				<div className='navbar-offer'> All bundles 30% off! </div>
+				<div className='navbar-offer'></div>
 
 				{menu.menu && <SideMenu toggleMenu={toggleMenu} />}
 				{menu.search && <Search toggleMenu={toggleMenu} />}
