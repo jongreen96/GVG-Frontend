@@ -234,8 +234,16 @@ input::placeholder {
 
 .btn:active,
 .product-tile:active,
+.navbar-item:active {
+    transform: scale(0.98);
+}
+
 .icon:active {
-    transform: translate(0, 3px);
+    transform: scale(0.9);
+}
+
+.navbar-item:hover {
+    color: var(--cta-hover);
 }
 
 .btn-naked {
