@@ -29,7 +29,7 @@ export default function Home() {
 			<div id='categories'>
 				<div className='tile'>
 					<img
-						src='https://gvg-backend.herokuapp.com/iphone-14-pro-max.png'
+						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
 						alt='All Products'
 					/>
 					<h3 className='font-three'>All Products</h3>
@@ -37,7 +37,7 @@ export default function Home() {
 
 				<div className='tile'>
 					<img
-						src='https://gvg-backend.herokuapp.com/iphone-14-pro-max.png'
+						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
 						alt='All Products'
 					/>
 					<h3 className='font-three'>Bundles</h3>
@@ -45,7 +45,7 @@ export default function Home() {
 
 				<div className='tile'>
 					<img
-						src='https://gvg-backend.herokuapp.com/iphone-14-pro-max.png'
+						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
 						alt='All Products'
 					/>
 					<h3 className='font-three'>Reviews</h3>
@@ -53,7 +53,7 @@ export default function Home() {
 
 				<div className='tile'>
 					<img
-						src='https://gvg-backend.herokuapp.com/iphone-14-pro-max.png'
+						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
 						alt='All Products'
 					/>
 					<h3 className='font-three'>Decals</h3>
@@ -61,7 +61,7 @@ export default function Home() {
 
 				<div className='tile'>
 					<img
-						src='https://gvg-backend.herokuapp.com/iphone-14-pro-max.png'
+						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
 						alt='All Products'
 					/>
 					<h3 className='font-three'>Consoles</h3>
