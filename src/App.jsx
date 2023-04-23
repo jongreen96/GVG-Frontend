@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './store/auth/authSlice';
 import { checkLoginStatus } from './store/auth/authAPI';
@@ -21,6 +21,7 @@ import Confirmation from './pages/Confirmation';
 
 function App() {
 	const dispatch = useDispatch();
+	const location = useLocation();
 
 	const user = useSelector(selectUser);
 
@@ -34,6 +35,10 @@ function App() {
 			dispatch(getCart());
 		}
 	}, [user]);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location]);
 
 	return (
 		<>

@@ -5,7 +5,6 @@ export const ProductTile = ({ product }) => {
 
 	const handleClick = () => {
 		navigate(`/products/${product.id}`);
-		window.scrollTo(0, 0);
 	};
 
 	return (

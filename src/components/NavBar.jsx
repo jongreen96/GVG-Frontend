@@ -41,13 +41,19 @@ export default function NavBar() {
 		toggleMenu('none');
 	}, [location]);
 
+	useEffect(() => {
+		if (cartAmount != 0) {
+			const quantity = document.querySelector('.basket-quantity');
+			quantity.classList.add('pop');
+			setTimeout(() => {
+				quantity.classList.remove('pop');
+			}, 500);
+		}
+	}, [cartAmount]);
+
 	return (
 		<>
-			<nav
-				className='bg-white'
-				role='navigation'
-				aria-label='main navigation'
-			>
+			<nav className='bg-white' role='navigation' aria-label='main navigation'>
 				<div className='navbar flex'>
 					<div className='nav-left flex'>
 						<img
@@ -108,12 +114,11 @@ export default function NavBar() {
 							/>
 						)}
 
-						{cartAmount !== 0 &&
-							location.pathname !== '/checkout' && (
-								<div className='basket-quantity'>
-									<p>{cartAmount}</p>
-								</div>
-							)}
+						{cartAmount !== 0 && location.pathname !== '/checkout' && (
+							<div className='basket-quantity'>
+								<p>{cartAmount}</p>
+							</div>
+						)}
 					</div>
 				</div>
 

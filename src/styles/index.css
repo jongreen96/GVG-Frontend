@@ -6,6 +6,7 @@
     --secondary-svg: invert(26%) sepia(8%) saturate(79%) hue-rotate(251deg) brightness(90%) contrast(85%);
     --tertiary: #949294;
     --cta: #16A093;
+    --cta-hover: #14907f;
     --cta-svg: invert(43%) sepia(83%) saturate(390%) hue-rotate(125deg) brightness(101%) contrast(99%);
     --tertiary-svg: invert(66%) sepia(6%) saturate(70%) hue-rotate(251deg) brightness(88%) contrast(87%);
 
@@ -154,7 +155,7 @@ h6 {
 html {
     font-family: var(--font-family);
     font-size: var(--font-size);
-    background-image: url(./assets/gvg-bg.png);
+    background-image: url(https://gvg-backend.herokuapp.com/images/gvg-bg.png);
     background-position: center;
     scroll-behavior: smooth;
 }
@@ -208,8 +209,6 @@ input::placeholder {
 
 .overlay {
     position: fixed;
-    bottom: 100;
-    left: 0;
     width: 100%;
     height: 100%;
     background-color: var(--secondary);
@@ -227,6 +226,16 @@ input::placeholder {
     font-weight: bold;
     width: 100%;
     cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--cta-hover);
+}
+
+.btn:active,
+.product-tile:active,
+.icon:active {
+    transform: translate(0, 3px);
 }
 
 .btn-naked {
@@ -258,3 +267,34 @@ input::placeholder {
     margin-bottom: -0.3rem;
     cursor: pointer;
 }
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading>:nth-child(1) {
+    animation: spin 2s ease-in-out infinite;
+    width: 20vh;
+}
+
+@keyframes spin {
+    50% {
+        transform: scaleX(0);
+    }
+
+    0%, 100% {
+        transform: scaleX(-1);
+    }
+}
+
+.pop {
+    /* Animation that runs once */
+    animation: pop 0.5s ease-in-out;
+}
+
+  @keyframes pop{
+    50%  {transform: scale(1.4);}
+  }

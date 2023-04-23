@@ -77,8 +77,6 @@ nav {
 .search>input {
     width: 100%;
     border-radius: 0 0 var(--half-size) var(--half-size);
-    padding: var(--half-size) var(--full-size);
-    text-align: center;
     border: none;
 }
 
