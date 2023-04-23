@@ -44,7 +44,7 @@ export default function NavBar() {
 	useEffect(() => {
 		if (cartAmount != 0) {
 			const quantity = document.querySelector('.basket-quantity');
-			quantity.classList.add('pop');
+			quantity?.classList.add('pop');
 			setTimeout(() => {
 				quantity.classList.remove('pop');
 			}, 500);
