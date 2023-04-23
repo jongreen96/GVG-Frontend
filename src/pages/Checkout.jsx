@@ -25,7 +25,7 @@ export default function Checkout() {
 
 	useEffect(() => {
 		if (total > 0) {
-			paymentIntent(total).then((res) => {
+			paymentIntent(total.toFixed(2)).then((res) => {
 				setClientSecret(res);
 			});
 		}
