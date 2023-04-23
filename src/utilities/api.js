@@ -23,4 +23,22 @@ export const paymentIntent = async (total) => {
 	}
 };
 
+export const downloadFile = async (file) => {
+	// Download file from server
+	try {
+		const res = await api.get(`/download/${file}`, {
+			responseType: 'blob',
+		});
+		// save file to local storage
+		const url = window.URL.createObjectURL(new Blob([res.data]));
+		const link = document.createElement('a');
+		link.href = url;
+		link.setAttribute('download', file);
+		document.body.appendChild(link);
+		link.click();
+	} catch (err) {
+		throw err;
+	}
+};
+
 export default api;
