@@ -157,7 +157,6 @@ html {
     font-size: var(--font-size);
     background-image: url(https://gvg-backend.herokuapp.com/images/gvg-bg.png);
     background-position: center;
-    scroll-behavior: smooth;
 }
 
 .icon {
