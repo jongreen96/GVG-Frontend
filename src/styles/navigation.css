@@ -4,13 +4,13 @@ nav {
     position: sticky;
     width: 100%;
     top: 0;
-    background-color: var(--primary);
 }
 
 .navbar {
     justify-content: space-between;
     align-items: center;
     padding: var(--half-size) var(--full-size);
+    background-color: var(--primary);
 }
 
 .nav-center {
@@ -25,6 +25,7 @@ nav {
 
 .navbar-menu {
     justify-content: center;
+    background-color: var(--primary);
 }
 
 .navbar-offer {
@@ -185,4 +186,21 @@ nav {
 
 .basket-item-info:hover>:first-child {
     color: var(--cta);
+}
+
+/* Animations */
+.basket,
+.login,
+.search {
+    animation: slide-in .5s ease-in-out;
+    z-index: -1;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(-150%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
