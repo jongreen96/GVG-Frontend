@@ -96,7 +96,8 @@ nav {
 }
 
 .login,
-.basket {
+.basket,
+.search {
     background-color: var(--primary);
     position: absolute;
     bottom: 100;
@@ -105,6 +106,10 @@ nav {
     margin: var(--full-size);
     border-radius: var(--half-size);
     padding: var(--half-size);
+}
+
+.search {
+    left: 0;
 }
 
 .register {
@@ -120,7 +125,8 @@ nav {
 @media screen and (max-width: 480px) {
 
     .login,
-    .basket {
+    .basket,
+    .search {
         margin: 0;
         width: 100%;
         border-radius: 0 0 var(--half-size) var(--half-size);
