@@ -292,7 +292,8 @@ input::placeholder {
         transform: scaleX(0);
     }
 
-    0%, 100% {
+    0%,
+    100% {
         transform: scaleX(-1);
     }
 }
@@ -302,6 +303,8 @@ input::placeholder {
     animation: pop 0.5s ease-in-out;
 }
 
-  @keyframes pop{
-    50%  {transform: scale(1.4);}
-  }
+@keyframes pop {
+    50% {
+        transform: scale(1.4);
+    }
+}

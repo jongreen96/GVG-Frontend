@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectAllProducts } from '../store/product/productSlice';
 import { ProductTile } from '../components/ProductTile.jsx';
 import logo from '../assets/icons/logo.svg';
+import '../styles/homepage.css';
 
 export default function Home() {
 	const products = useSelector(selectAllProducts);
@@ -15,65 +16,75 @@ export default function Home() {
 		);
 	}
 
+	function handleClick() {
+		const element = document.getElementById('best-sellers');
+		const offset = 155;
+		const elementPosition = element.getBoundingClientRect().top;
+		const offsetPosition = elementPosition - offset;
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+	}
+
 	return (
-		<div className='page'>
-			<h1 className='font-one'>Best Sellers</h1>
-			<div className='flex' id='best-sellers'>
-				<ProductTile product={products[0]} />
-				<ProductTile product={products[1]} />
-				<ProductTile product={products[2]} />
-				<ProductTile product={products[3]} />
-			</div>
+		<>
+			<div className='hero'>
+				<div className='container'>
+					<div className='hero-text'>
+						<div className='hero-info flex-column'>
+							<h1 className='font-one'>Green Vinyl Graphics</h1>
+							<p className='font-four'>
+								Ready to take your creative dreams to the next
+								level? Our digital templates are the perfect
+								partner for your vinyl cutting, digital mockups,
+								and graphic design projects. We specialize in
+								precision-designed templates for Apple devices,
+								and our collection has something for everyone.
+								With our easy-to-use templates, you'll have the
+								tools you need to create stunning designs in
+								minutes.
+							</p>
 
-			<h2 className='font-one'>Quick Links</h2>
-			<div id='categories'>
-				<div className='tile'>
-					<img
-						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
-						alt='All Products'
-					/>
-					<h3 className='font-three'>All Products</h3>
+							<button className='btn' onClick={handleClick}>
+								Shop Now
+							</button>
+						</div>
+					</div>
 				</div>
-
-				<div className='tile'>
-					<img
-						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
-						alt='All Products'
-					/>
-					<h3 className='font-three'>Bundles</h3>
-				</div>
-
-				<div className='tile'>
-					<img
-						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
-						alt='All Products'
-					/>
-					<h3 className='font-three'>Reviews</h3>
-				</div>
-
-				<div className='tile'>
-					<img
-						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
-						alt='All Products'
-					/>
-					<h3 className='font-three'>Decals</h3>
-				</div>
-
-				<div className='tile'>
-					<img
-						src='https://gvg-backend.herokuapp.com/images/All-iPhone-Bundle.png'
-						alt='All Products'
-					/>
-					<h3 className='font-three'>Consoles</h3>
+				<div className='hero-scroll'>
+					<p className='font-three'>Scroll down</p>
 				</div>
 			</div>
+			<div className='page'>
+				<h2 className='font-one'>Best Sellers</h2>
+				<div className='flex' id='best-sellers'>
+					{products?.map((product) => {
+						if (
+							product.id === 14 ||
+							product.id === 9 ||
+							product.id === 41 ||
+							product.id === 62
+						)
+							return (
+								<ProductTile
+									key={product.id}
+									product={product}
+									bestSeller
+								/>
+							);
+					})}
+				</div>
 
-			<h2 className='font-one'>All Products</h2>
-			<div className='products'>
-				{products?.map((product) => {
-					return <ProductTile key={product.id} product={product} />;
-				})}
+				<h2 className='font-one'>All Products</h2>
+				<div className='products'>
+					{products?.map((product) => {
+						return (
+							<ProductTile key={product.id} product={product} />
+						);
+					})}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
