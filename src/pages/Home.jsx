@@ -52,9 +52,6 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-				<div className='hero-scroll'>
-					<p className='font-three'>Scroll down</p>
-				</div>
 			</div>
 			<div className='page'>
 				<h2 className='font-one'>Best Sellers</h2>

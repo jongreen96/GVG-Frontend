@@ -2,7 +2,7 @@
     background-image: url(https://gvg-backend.herokuapp.com/images/hero-bg.png);
     background-position: right;
     background-size: cover;
-    height: calc(100vh - 86px);
+    height: calc(60vh - 86px);
     width: 100%;
     border-bottom: var(--quarter-size) solid var(--cta);
     display: flex;
@@ -20,22 +20,19 @@
     border-radius: var(--half-size);
 }
 
+.hero-info>h1 {
+    font-size: 3rem;
+    margin-bottom: var(--quarter-size);
+}
+
 .hero-info>.btn {
     max-width: 400px;
+    margin-top: var(--half-size);
 }
 
 .container {
     max-width: calc(1280px - var(--full-size) * 2);
     width: 100%;
-}
-
-.hero-scroll {
-    position: absolute;
-    bottom: 0;
-    transform: translateX(-0.5rem);
-    background-color: var(--cta);
-    padding: var(--quarter-size) var(--full-size);
-    border-radius: var(--half-size) var(--half-size) 0 0;
 }
 
 .hero-scroll>p {
@@ -44,6 +41,16 @@
 
 @media screen and (max-width: 768px) {
     .hero {
-        height: calc(100vh - 56px);
+        height: calc(60vh - 56px);
+    }
+
+    .hero-info>h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .hero {
+        height: calc(80vh - 56px);
     }
 }
