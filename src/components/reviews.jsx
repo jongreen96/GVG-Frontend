@@ -60,18 +60,20 @@ export const Reviews = ({ product }) => {
 				) : (
 					<p className='font-five'>No reviews yet</p>
 				)}
-				{numReviewsShown < sortedReviews.length ? (
-					<button
-						className='btn-naked'
-						onClick={() => setNumReviewsShown(sortedReviews.length)}
-					>
-						Show all reviews
-					</button>
-				) : (
-					<button className='btn-naked' onClick={() => setNumReviewsShown(5)}>
-						Show less
-					</button>
-				)}
+				{sortedReviews.length > 5 ? (
+					numReviewsShown < sortedReviews.length ? (
+						<button
+							className='btn-naked'
+							onClick={() => setNumReviewsShown(sortedReviews.length)}
+						>
+							Show all reviews
+						</button>
+					) : (
+						<button className='btn-naked' onClick={() => setNumReviewsShown(5)}>
+							Show less
+						</button>
+					)
+				) : null}
 			</div>
 		</div>
 	);
