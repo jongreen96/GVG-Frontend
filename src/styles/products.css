@@ -144,6 +144,13 @@
     border-radius: 50%;
 }
 
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--full-size);
+}
+
 .review-head {
     display: flex;
     justify-content: space-between;
