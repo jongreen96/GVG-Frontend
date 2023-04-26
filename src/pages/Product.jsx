@@ -86,7 +86,7 @@ export default function Product() {
 											<div>
 												<p className='font-four'>
 													{'★'.repeat(review.score)}
-													{` - ${review.first_name} ${review.last_name}`}
+													{` - ${review.reviewer}`}
 												</p>
 												<p className='font-five'>
 													{review.created.slice(0, 10).replaceAll('-', '/')}
