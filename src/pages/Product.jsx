@@ -77,15 +77,30 @@ export default function Product() {
 					</div>
 
 					<div id='product-review' className='tile'>
-						<h2 className='font-three'>Reviews</h2>
+						<div className='review-head'>
+							<h2 className='font-three'>Reviews</h2>
+							<p className='font-three'>
+								{' '}
+								average:{' '}
+								{product.reviews
+									? (
+											product.reviews.reduce(
+												(acc, curr) => acc + curr.score,
+												0
+											) / product.reviews.length
+									  ).toFixed(1) + ' ★'
+									: 'No reviews yet'}
+							</p>
+						</div>
 						<div className='review flex-column'>
 							{product.reviews ? (
 								product.reviews.map((review, i) => {
 									return (
 										<div className='review-item' key={i}>
-											<div>
+											<div className='review-head'>
 												<p className='font-four'>
 													{'★'.repeat(review.score)}
+													{'☆'.repeat(5 - review.score)}
 													{` - ${review.reviewer}`}
 												</p>
 												<p className='font-five'>
