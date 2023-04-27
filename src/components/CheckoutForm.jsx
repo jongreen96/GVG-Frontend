@@ -8,8 +8,9 @@ import { useDispatch } from 'react-redux';
 import { createOrder } from '../store/order/orderAPI';
 import { useNavigate } from 'react-router';
 import { clearCart } from '../store/cart/cartSlice';
+import { sendOrderConfirmation } from '../utilities/api';
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ user, total }) {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const stripe = useStripe();
@@ -35,6 +36,7 @@ export default function CheckoutForm() {
 			switch (paymentIntent.status) {
 				case 'succeeded':
 					setMessage('Payment succeeded!');
+					sendOrderConfirmation(user, total);
 					dispatch(createOrder(paymentIntent.id));
 					dispatch(clearCart());
 					navigate('/confirmation');

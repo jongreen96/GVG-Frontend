@@ -7,10 +7,12 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../components/CheckoutForm';
 import Back from '../components/Back';
+import { selectUser } from '../store/auth/authSlice';
 
 const stripePromise = loadStripe('pk_live_Dd45ymuhQ2enqogdQqQwEd6s');
 
 export default function Checkout() {
+	const user = useSelector(selectUser);
 	const basket = useSelector(selectCart);
 	const [total, setTotal] = useState(0);
 	const [clientSecret, setClientSecret] = useState('');
@@ -73,7 +75,7 @@ export default function Checkout() {
 				<div className='tile'>
 					{clientSecret && (
 						<Elements options={options} stripe={stripePromise}>
-							<CheckoutForm />
+							<CheckoutForm user={user} total={total} />
 						</Elements>
 					)}
 				</div>

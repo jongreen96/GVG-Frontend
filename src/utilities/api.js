@@ -14,6 +14,18 @@ export const sendContactForm = (data) => {
 	}
 };
 
+export const sendOrderConfirmation = (user, total) => {
+	try {
+		return api.post('/order-confirmation', {
+			name: `${user.first_name} ${user.last_name}`,
+			email: user.email,
+			total,
+		});
+	} catch (err) {
+		throw err;
+	}
+};
+
 export const paymentIntent = async (total) => {
 	try {
 		const response = await api.post('/create-payment-intent', { total });
