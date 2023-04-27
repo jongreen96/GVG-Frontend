@@ -31,7 +31,7 @@ export function Login({ toggleMenu }) {
 		}
 		dispatch(
 			login({
-				email: form.email,
+				email: form.email.trim(),
 				password: form.password,
 			})
 		);
@@ -44,10 +44,10 @@ export function Login({ toggleMenu }) {
 		if (form.password === form.confirmPassword) {
 			dispatch(
 				register({
-					email: form.email,
+					email: form.email.trim(),
 					password: form.password,
-					firstName: form.firstName,
-					lastName: form.lastName,
+					firstName: form.firstName.trim(),
+					lastName: form.lastName.trim(),
 				})
 			).then(() => submitLogin());
 			toggleMenu('login');
