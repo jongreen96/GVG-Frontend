@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { getReviewsByProductId } from '../store/product/productAPI';
 import { addItem } from '../store/cart/cartAPI';
 import Back from '../components/Back';
+import { Reviews } from '../components/reviews';
 
 export default function Product() {
 	const dispatch = useDispatch();
@@ -76,37 +77,7 @@ export default function Product() {
 						</p>
 					</div>
 
-					<div id='product-review' className='tile'>
-						<h2 className='font-three'>Reviews</h2>
-						<div className='review flex-column'>
-							{product.reviews ? (
-								product.reviews.map((review, i) => {
-									return (
-										<div className='review-item' key={i}>
-											<div>
-												<p className='font-four'>
-													{'★'.repeat(review.score)}
-													{` - ${review.first_name} ${review.last_name}`}
-												</p>
-												<p className='font-five'>
-													{review.created.slice(0, 10).replaceAll('-', '/')}
-												</p>
-											</div>
-											<p className='font-five'>{review.description}</p>
-											<div className='review-images'>
-												{review.images &&
-													review.images.map((img, i) => (
-														<img src={img} alt='review' key={i} />
-													))}
-											</div>
-										</div>
-									);
-								})
-							) : (
-								<p className='font-five'>No reviews yet</p>
-							)}
-						</div>
-					</div>
+					<Reviews product={product} />
 
 					<div id='product-related' className='tile'>
 						<h2 className='font-three'>Related Products</h2>

@@ -128,6 +128,15 @@
     text-align: center;
 }
 
+.review-item {
+    padding-bottom: var(--half-size);
+    border-bottom: 1px solid #cccccc50;
+}
+
+.review-item:last-child { 
+    border-bottom: none; 
+}
+
 .review-item>div {
     display: flex;
     align-items: end;
@@ -137,6 +146,19 @@
 .review-images {
     width: 100px;
     border-radius: 50%;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--full-size);
+}
+
+.review-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #categories {

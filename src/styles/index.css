@@ -248,7 +248,7 @@ input::placeholder {
 .btn-naked {
     background-color: transparent;
     font-size: var(--font-16);
-    color: var(--tertiary);
+    color: var(--cta);
     cursor: pointer;
 }
 

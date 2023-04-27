@@ -8,7 +8,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../components/CheckoutForm';
 import Back from '../components/Back';
 
-const stripePromise = loadStripe('pk_test_DXtaGIXSvQX3ww0FVnt23HDM');
+const stripePromise = loadStripe('pk_live_Dd45ymuhQ2enqogdQqQwEd6s');
 
 export default function Checkout() {
 	const basket = useSelector(selectCart);
