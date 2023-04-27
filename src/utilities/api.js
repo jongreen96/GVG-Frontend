@@ -53,4 +53,12 @@ export const downloadFile = async (file) => {
 	}
 };
 
+export const reviewProduct = async (review) => {
+	try {
+		return api.post('/reviews', review);
+	} catch (err) {
+		throw err;
+	}
+};
+
 export default api;
