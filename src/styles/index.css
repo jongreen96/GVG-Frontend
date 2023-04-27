@@ -266,6 +266,10 @@ input::placeholder {
     filter: var(--cta-svg);
 }
 
+.center {
+    text-align: center;
+}
+
 .back {
     display: flex;
     align-items: center;

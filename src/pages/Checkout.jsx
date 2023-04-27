@@ -65,6 +65,9 @@ export default function Checkout() {
 							</div>
 						);
 					})}
+					<p className='font-five center'>
+						Please note: Digital products cannot be refunded once downloaded.
+					</p>
 					<div className='total'>
 						<h4 className='font-three'>
 							Total: <span className='cta'>£{total}</span>
