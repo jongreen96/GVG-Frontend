@@ -2,9 +2,13 @@ import { useDispatch } from 'react-redux';
 import downloadIcon from '../assets/icons/download.svg';
 import { setDownloaded } from '../store/order/orderAPI';
 import { downloadFile } from '../utilities/api';
+import { useState } from 'react';
+import CreateReview from './CreateReview';
 
-export default function Order({ orderDetails }) {
+export default function Order({ orderDetails, user }) {
 	const dispatch = useDispatch();
+	const [review, setReview] = useState(false);
+
 	const handleDownload = (downloadLink, productId) => {
 		return () => {
 			if (downloadLink) {
@@ -56,10 +60,27 @@ export default function Order({ orderDetails }) {
 				})}
 			</div>
 
-			<div>
-				<h3 className='font-three'>Total:</h3>
-				<p className='font-four'>£{orderDetails.total}</p>
+			<div className='flex-between'>
+				<div>
+					<h3 className='font-three'>Total:</h3>
+					<p className='font-four'>£{orderDetails.total}</p>
+				</div>
+				<button
+					className='btn btn-primary review-btn'
+					onClick={() => setReview(!review)}
+				>
+					Review
+				</button>
 			</div>
+
+			{review && (
+				<CreateReview
+					orderDetails={orderDetails}
+					user={user}
+					review={review}
+					setReview={setReview}
+				/>
+			)}
 		</div>
 	);
 }

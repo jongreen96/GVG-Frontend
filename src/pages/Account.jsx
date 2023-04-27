@@ -83,7 +83,6 @@ export default function Account() {
 							<p className='special-link' onClick={() => toggleUpdateDetails()}>
 								Change account details
 							</p>
-							<p className='special-link'>Manage email preferences</p>
 							<p className='special-link' onClick={() => handleLogout()}>
 								Logout
 							</p>
@@ -94,7 +93,9 @@ export default function Account() {
 				<div className='account-orders'>
 					<h2 className='font-one'>Order History</h2>
 					{orders ? (
-						orders.map((order, i) => <Order key={i} orderDetails={order} />)
+						orders.map((order, i) => (
+							<Order key={i} orderDetails={order} user={user} />
+						))
 					) : (
 						<p className='font-five'>No orders found</p>
 					)}

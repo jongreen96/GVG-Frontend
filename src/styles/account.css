@@ -56,6 +56,11 @@
     filter: var(--cta-svg);
 }
 
+.review-btn {
+    width: 100px !important;
+    height: 40px;
+}
+
 @media screen and (max-width: 768px) {
     .account {
         grid-template-areas:
@@ -64,4 +69,10 @@
             "three";
         grid-template-columns: 1fr;
     }
+}
+
+/* REVIEWS */
+.create-review {
+    border-top: 1px solid #ccc;
+    padding-top: var(--half-size);
 }

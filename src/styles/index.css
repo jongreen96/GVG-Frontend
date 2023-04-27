@@ -151,6 +151,13 @@ h6 {
     flex-direction: column;
 }
 
+.flex-between {
+    display: flex;
+    gap: var(--half-size);
+    justify-content: space-between;
+    align-items: end;
+}
+
 /* STYLES */
 html {
     font-family: var(--font-family);
@@ -186,7 +193,8 @@ html {
 }
 
 input,
-textarea {
+textarea,
+select {
     width: 100%;
     color: var(--secondary);
     border-radius: var(--half-size);
