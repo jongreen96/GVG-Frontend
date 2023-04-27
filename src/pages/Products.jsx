@@ -9,9 +9,22 @@ export default function Products() {
 	const location = useLocation();
 	const search = new URLSearchParams(location.search).get('search');
 
-	const products = useSelector(selectAllProducts)?.filter((product) =>
-		product.name.toLowerCase().includes(search?.toLowerCase() || '')
+	const products = useSelector(selectAllProducts)?.filter(
+		(product) =>
+			product.name.toLowerCase().includes(search?.toLowerCase() || '') ||
+			product.description.toLowerCase().includes(search?.toLowerCase() || '') ||
+			product.category.toLowerCase().includes(search?.toLowerCase() || '')
 	);
+
+	products?.sort((a, b) => {
+		if (a.name.toLowerCase() < b.name.toLowerCase()) {
+			return -1;
+		}
+		if (a.name.toLowerCase() > b.name.toLowerCase()) {
+			return 1;
+		}
+		return 0;
+	});
 
 	return (
 		<div className='page'>

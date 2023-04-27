@@ -28,13 +28,13 @@ export function MenuItems() {
 			</li>
 
 			<li className='navbar-item'>
-				<NavLink to='/products?search=nintendo'>
+				<NavLink to='/products?search=console'>
 					<p>consoles</p>
 				</NavLink>
 			</li>
 
 			<li className='navbar-item'>
-				<NavLink to='/products?search=accessory'>
+				<NavLink to='/products?search=accessories'>
 					<p>accessories</p>
 				</NavLink>
 			</li>

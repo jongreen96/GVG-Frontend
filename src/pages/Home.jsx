@@ -27,6 +27,16 @@ export default function Home() {
 		});
 	}
 
+	const sortedProducts = [...products]?.sort((a, b) => {
+		if (a.name.toLowerCase() < b.name.toLowerCase()) {
+			return -1;
+		}
+		if (a.name.toLowerCase() > b.name.toLowerCase()) {
+			return 1;
+		}
+		return 0;
+	});
+
 	return (
 		<>
 			<div className='hero'>
@@ -35,15 +45,13 @@ export default function Home() {
 						<div className='hero-info flex-column'>
 							<h1 className='font-one'>Green Vinyl Graphics</h1>
 							<p className='font-four'>
-								Ready to take your creative dreams to the next
-								level? Our digital templates are the perfect
-								partner for your vinyl cutting, digital mockups,
-								and graphic design projects. We specialize in
-								precision-designed templates for Apple devices,
-								and our collection has something for everyone.
-								With our easy-to-use templates, you'll have the
-								tools you need to create stunning designs in
-								minutes.
+								Ready to take your creative dreams to the next level? Our
+								digital templates are the perfect partner for your vinyl
+								cutting, digital mockups, and graphic design projects. We
+								specialize in precision-designed templates for Apple devices,
+								and our collection has something for everyone. With our
+								easy-to-use templates, you'll have the tools you need to create
+								stunning designs in minutes.
 							</p>
 
 							<button className='btn' onClick={handleClick}>
@@ -64,21 +72,15 @@ export default function Home() {
 							product.id === 62
 						)
 							return (
-								<ProductTile
-									key={product.id}
-									product={product}
-									bestSeller
-								/>
+								<ProductTile key={product.id} product={product} bestSeller />
 							);
 					})}
 				</div>
 
 				<h2 className='font-one'>All Products</h2>
 				<div className='products'>
-					{products?.map((product) => {
-						return (
-							<ProductTile key={product.id} product={product} />
-						);
+					{sortedProducts?.map((product) => {
+						return <ProductTile key={product.id} product={product} />;
 					})}
 				</div>
 			</div>

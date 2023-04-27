@@ -26,6 +26,16 @@ nav {
 .navbar-menu {
     justify-content: center;
     background-color: var(--primary);
+    gap: 0 !important;
+}
+
+.navbar-item {
+    padding-inline: var(--quarter-size);
+    border-right: 1px solid #cccccc;
+}
+
+.navbar-item:last-child {
+    border-right: none;
 }
 
 .navbar-offer {
