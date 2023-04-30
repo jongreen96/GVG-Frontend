@@ -121,6 +121,7 @@
 
 .desc {
     overflow: hidden;
+    white-space: pre-wrap;
 }
 
 .more {
@@ -133,8 +134,8 @@
     border-bottom: 1px solid #cccccc50;
 }
 
-.review-item:last-child { 
-    border-bottom: none; 
+.review-item:last-child {
+    border-bottom: none;
 }
 
 .review-item>div {
