@@ -60,7 +60,7 @@ export default function Home() {
 			</div>
 			<div className='page' id='page'>
 				<h2 className='font-one'>Best Sellers</h2>
-				<div className='flex'>
+				<div className='flex' id='best-sellers'>
 					{products?.map((product) => {
 						if (
 							product.id === 14 ||
