@@ -6,6 +6,12 @@ import '../styles/homepage.css';
 
 export default function Home() {
 	const products = useSelector(selectAllProducts);
+	const navigation = document.querySelector('.primary-nav');
+	const navigationHeight = navigation?.offsetHeight;
+	document.documentElement.style.setProperty(
+		'--scroll-offset',
+		`${navigationHeight}px`
+	);
 
 	if (!products) {
 		return (
@@ -17,14 +23,8 @@ export default function Home() {
 	}
 
 	function handleClick() {
-		const element = document.getElementById('best-sellers');
-		const offset = 155;
-		const elementPosition = element.getBoundingClientRect().top;
-		const offsetPosition = elementPosition - offset;
-		window.scrollTo({
-			top: offsetPosition,
-			behavior: 'smooth',
-		});
+		const bestSellers = document.getElementById('page');
+		bestSellers.scrollIntoView({ behavior: 'smooth' });
 	}
 
 	const sortedProducts = [...products]?.sort((a, b) => {
@@ -58,9 +58,9 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<div className='page'>
+			<div className='page' id='page'>
 				<h2 className='font-one'>Best Sellers</h2>
-				<div className='flex' id='best-sellers'>
+				<div className='flex'>
 					{products?.map((product) => {
 						if (
 							product.id === 14 ||

@@ -14,7 +14,14 @@ export const ProductTile = ({ product }) => {
 				<h2 className='font-four'>{product.name}</h2>
 				<div className='product-tile-details flex'>
 					<h3 className='font-five'>{product.category}</h3>
-					<p className='font-four cta'>£{product.price}</p>
+					<div className='flex'>
+						{product.name.includes('Bundle') ? (
+							<p className='font-five discount'>
+								£{(product.price * 1.4287).toFixed(2)}
+							</p>
+						) : null}
+						<p className='font-four cta'>£{product.price}</p>
+					</div>
 				</div>
 			</div>
 		</div>

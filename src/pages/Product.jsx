@@ -55,7 +55,14 @@ export default function Product() {
 					<div id='product-info' className='tile'>
 						<h2 className='font-two'>{product.name}</h2>
 						<p className='font-five'>{product.category}</p>
-						<p className='font-two cta'>£{product.price}</p>
+						<div className='flex'>
+							<p className='font-two cta'>£{product.price}</p>
+							{product.name.includes('Bundle') ? (
+								<p className='font-five discount'>
+									£{(product.price * 1.4287).toFixed(2)}
+								</p>
+							) : null}
+						</div>
 						<button className='btn' type='button' onClick={() => addToBasket()}>
 							Add to basket
 						</button>

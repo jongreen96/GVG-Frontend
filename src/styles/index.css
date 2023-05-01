@@ -26,6 +26,7 @@
     --full-size: var(--font-size);
     --double-size: calc(var(--font-size) * 2);
     --icon-size: 30px;
+    --scroll-offset: calc(var(--font-size) * 2);
 }
 
 /* CSS RESET */
@@ -164,6 +165,7 @@ html {
     font-size: var(--font-size);
     background-image: url('../assets/icons/gvg-bg.png');
     background-position: center;
+    scroll-padding: var(--scroll-offset);
 }
 
 .icon {

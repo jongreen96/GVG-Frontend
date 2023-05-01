@@ -30,6 +30,11 @@
     align-items: baseline;
 }
 
+.discount {
+    text-decoration: line-through;
+    align-self: end;
+}
+
 @media screen and (max-width: 480px) {
     .product-tile {
         max-width: 100%;

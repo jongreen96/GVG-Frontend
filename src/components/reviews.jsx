@@ -21,16 +21,15 @@ export const Reviews = ({ product }) => {
 		<div id='product-review' className='tile'>
 			<div className='review-header'>
 				<h2 className='font-three'>Reviews</h2>
-				<p className='font-three'>
-					{' '}
-					average:{' '}
-					{product.reviews
-						? (
-								product.reviews.reduce((acc, curr) => acc + curr.score, 0) /
-								product.reviews.length
-						  ).toFixed(1) + ' ★'
-						: 'No reviews yet'}
-				</p>
+				{product.reviews ? (
+					<p className='font-three'>
+						average:{' '}
+						{(
+							product.reviews.reduce((acc, curr) => acc + curr.score, 0) /
+							product.reviews.length
+						).toFixed(1) + ' ★'}
+					</p>
+				) : null}
 			</div>
 			<div className='review flex-column'>
 				{product.reviews ? (

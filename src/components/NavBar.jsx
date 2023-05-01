@@ -53,7 +53,11 @@ export default function NavBar() {
 
 	return (
 		<>
-			<nav role='navigation' aria-label='main navigation'>
+			<nav
+				role='navigation'
+				aria-label='main navigation'
+				className='primary-nav'
+			>
 				<div className='navbar flex'>
 					<div className='nav-left flex'>
 						<img
