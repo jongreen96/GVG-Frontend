@@ -162,7 +162,7 @@ h6 {
 html {
     font-family: var(--font-family);
     font-size: var(--font-size);
-    background-image: url(https://gvg-backend.herokuapp.com/images/gvg-bg.png);
+    background-image: url('../assets/icons/gvg-bg.png');
     background-position: center;
 }
 

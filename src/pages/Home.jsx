@@ -40,24 +40,21 @@ export default function Home() {
 	return (
 		<>
 			<div className='hero'>
-				<div className='container'>
-					<div className='hero-text'>
-						<div className='hero-info flex-column'>
-							<h1 className='font-one'>Green Vinyl Graphics</h1>
-							<p className='font-four'>
-								Ready to take your creative dreams to the next level? Our
-								digital templates are the perfect partner for your vinyl
-								cutting, digital mockups, and graphic design projects. We
-								specialize in precision-designed templates for Apple devices,
-								and our collection has something for everyone. With our
-								easy-to-use templates, you'll have the tools you need to create
-								stunning designs in minutes.
-							</p>
+				<div className='hero-text'>
+					<div className='hero-info flex-column'>
+						<h1 className='font-one center'>Green Vinyl Graphics</h1>
+						<p className='font-four'>
+							Ready to take your creative dreams to the next level? Our digital
+							templates are the perfect partner for your vinyl cutting, digital
+							mockups, and graphic design projects. We specialize in
+							precision-designed templates for Apple devices, and our collection
+							has something for everyone. With our easy-to-use templates, you'll
+							have the tools you need to create stunning designs in minutes.
+						</p>
 
-							<button className='btn' onClick={handleClick}>
-								Shop Now
-							</button>
-						</div>
+						<button className='btn' onClick={handleClick}>
+							Shop Now
+						</button>
 					</div>
 				</div>
 			</div>

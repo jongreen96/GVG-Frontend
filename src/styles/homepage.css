@@ -1,21 +1,21 @@
 .hero {
-    background-image: url(https://gvg-backend.herokuapp.com/images/hero-bg.png);
-    background-position: right;
+    background-image: url('../assets/icons/hero.png');
+    background-position: top;
     background-size: cover;
     height: calc(60vh - 86px);
     width: 100%;
     border-bottom: var(--quarter-size) solid var(--cta);
     display: flex;
     align-items: center;
-    padding-left: var(--full-size);
     justify-content: center;
     position: relative;
 }
 
 .hero-info {
     width: 768px;
-    max-width: 90vw;
-    background-color: #ecececea;
+    max-width: 95vw;
+    background-color: var(--primary);
+    box-shadow: 0 0 10px 0 var(--tertiary);
     padding: var(--half-size);
     border-radius: var(--half-size);
 }
@@ -27,21 +27,12 @@
 
 .hero-info>.btn {
     max-width: 400px;
-    margin-top: var(--half-size);
-}
-
-.container {
-    max-width: calc(1280px - var(--full-size) * 2);
-    width: 100%;
-}
-
-.hero-scroll>p {
-    color: var(--primary);
+    margin-inline: auto;
 }
 
 @media screen and (max-width: 768px) {
     .hero {
-        height: calc(60vh - 56px);
+        height: calc(70vh - 56px);
     }
 
     .hero-info>h1 {
