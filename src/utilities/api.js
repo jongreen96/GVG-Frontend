@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { currencyTicker } from './currency';
 
 const api = axios.create({
 	baseURL: '/api/',
@@ -28,7 +29,10 @@ export const sendOrderConfirmation = (user, total) => {
 
 export const paymentIntent = async (total) => {
 	try {
-		const response = await api.post('/create-payment-intent', { total });
+		const response = await api.post('/create-payment-intent', {
+			total,
+			currency: currencyTicker(),
+		});
 		return response.data.clientSecret;
 	} catch (err) {
 		throw err;

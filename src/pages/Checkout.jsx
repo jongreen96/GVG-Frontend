@@ -8,6 +8,11 @@ import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../components/CheckoutForm';
 import Back from '../components/Back';
 import { selectUser } from '../store/auth/authSlice';
+import {
+	currencyFormatter,
+	currencyTicker,
+	exchangeRateCache,
+} from '../utilities/currency';
 
 const stripePromise = loadStripe('pk_live_Dd45ymuhQ2enqogdQqQwEd6s');
 
@@ -27,7 +32,7 @@ export default function Checkout() {
 
 	useEffect(() => {
 		if (total > 0) {
-			paymentIntent(total).then((res) => {
+			paymentIntent(total * exchangeRateCache[currencyTicker()]).then((res) => {
 				setClientSecret(res);
 			});
 		}
@@ -60,7 +65,9 @@ export default function Checkout() {
 								<div className='info'>
 									<h3 className='font-four'>{item.name}</h3>
 									<p className='font-four'>{item.description}</p>
-									<p className='font-four cta'>£{item.price}</p>
+									<p className='font-four cta'>
+										{currencyFormatter(item.price)}
+									</p>
 								</div>
 							</div>
 						);
@@ -70,7 +77,7 @@ export default function Checkout() {
 					</p>
 					<div className='total'>
 						<h4 className='font-three'>
-							Total: <span className='cta'>£{total}</span>
+							Total: <span className='cta'>{currencyFormatter(total)}</span>
 						</h4>
 					</div>
 				</div>

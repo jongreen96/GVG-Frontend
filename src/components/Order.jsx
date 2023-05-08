@@ -4,6 +4,7 @@ import { setDownloaded } from '../store/order/orderAPI';
 import { downloadFile } from '../utilities/api';
 import { useState } from 'react';
 import CreateReview from './CreateReview';
+import { currencyFormatter } from '../utilities/currency';
 
 export default function Order({ orderDetails, user }) {
 	const dispatch = useDispatch();
@@ -63,7 +64,7 @@ export default function Order({ orderDetails, user }) {
 			<div className='flex-between'>
 				<div>
 					<h3 className='font-three'>Total:</h3>
-					<p className='font-four'>£{orderDetails.total}</p>
+					<p className='font-four'>{currencyFormatter(orderDetails.total)}</p>
 				</div>
 				<button
 					className='btn btn-primary review-btn'
