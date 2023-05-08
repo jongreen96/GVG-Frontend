@@ -2,8 +2,8 @@ import axios from 'axios';
 import { currencyTicker } from './currency';
 
 const api = axios.create({
-	// baseURL: '/api/',
-	baseURL: 'http://localhost:3000',
+	baseURL: '/api/',
+	// baseURL: 'http://localhost:3000',
 	withCredentials: true,
 });
 
