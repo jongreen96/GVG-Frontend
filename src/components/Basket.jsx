@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { selectCart } from '../store/cart/cartSlice';
 import cross from '../assets/icons/cross.svg';
 import { removeItem } from '../store/cart/cartAPI';
+import { currencyFormatter } from '../utilities/currency';
 
 export function Basket({ toggleMenu }) {
 	const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export function Basket({ toggleMenu }) {
 						<h2 className='font-three'>Basket</h2>
 
 						<p className='font-four'>
-							Total: <span className='cta'>£{total}</span>
+							Total: <span className='cta'>{currencyFormatter(total)}</span>
 						</p>
 					</div>
 
@@ -40,7 +41,9 @@ export function Basket({ toggleMenu }) {
 									onClick={() => navigate(`/products/${item.product_id}`)}
 								>
 									<p className='font-four'>{item.name}</p>
-									<p className='font-four cta'>£{item.price * item.quantity}</p>
+									<p className='font-four cta'>
+										{currencyFormatter(item.price * item.quantity)}
+									</p>
 								</div>
 								<img
 									src={cross}

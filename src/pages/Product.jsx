@@ -8,6 +8,7 @@ import { getReviewsByProductId } from '../store/product/productAPI';
 import { addItem } from '../store/cart/cartAPI';
 import Back from '../components/Back';
 import { Reviews } from '../components/reviews';
+import { currencyFormatter } from '../utilities/currency';
 
 export default function Product() {
 	const dispatch = useDispatch();
@@ -56,10 +57,10 @@ export default function Product() {
 						<h2 className='font-two'>{product.name}</h2>
 						<p className='font-five'>{product.category}</p>
 						<div className='flex'>
-							<p className='font-two cta'>£{product.price}</p>
+							<p className='font-two cta'>{currencyFormatter(product.price)}</p>
 							{product.name.includes('Bundle') ? (
 								<p className='font-five discount'>
-									£{(product.price * 1.4287).toFixed(2)}
+									{currencyFormatter(product.price * 1.4287)}
 								</p>
 							) : null}
 						</div>

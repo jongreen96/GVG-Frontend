@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { currencyFormatter } from '../utilities/currency';
 
 export const ProductTile = ({ product }) => {
 	const navigate = useNavigate();
@@ -17,10 +18,10 @@ export const ProductTile = ({ product }) => {
 					<div className='flex'>
 						{product.name.includes('Bundle') ? (
 							<p className='font-five discount'>
-								£{(product.price * 1.4287).toFixed(2)}
+								{currencyFormatter(product.price * 1.4287)}
 							</p>
 						) : null}
-						<p className='font-four cta'>£{product.price}</p>
+						<p className='font-four cta'>{currencyFormatter(product.price)}</p>
 					</div>
 				</div>
 			</div>
